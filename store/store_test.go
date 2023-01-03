@@ -2,30 +2,22 @@ package store
 
 import (
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCandle(t *testing.T) {
-	t.Run("Bytes", func(t *testing.T) {
-		candle := NewCandle()
-		defer candle.Release()
-		candle.Symbol = "AAPL"
-		candle.Timestamp = time.UnixMilli(time.Now().UnixMilli())
-		candle.Resolution = Day
-		candle.Open = 100
-		candle.High = 110
-		candle.Low = 90
-		candle.Close = 105
-		candle.PrevClose = 105
-		candle.Volume = 100000
-
-		bytes := candle.Bytes()
-
-		otherCandle := NewCandle()
-		defer otherCandle.Release()
-		otherCandle.FromBytes(bytes)
-		assert.Equal(t, *candle, *otherCandle)
+func TestStore(t *testing.T) {
+	t.Run("Quote", func(t *testing.T) {
+		s := NewTestStore()
+		defer s.Close()
+		c, qErr := s.Quote("AAPL")
+		assert.Nil(t, qErr)
+		assert.NotNil(t, c)
+		defer c.Release()
+		c2, qErr2 := s.Quote("AAPL")
+		assert.Nil(t, qErr2)
+		assert.NotNil(t, c2)
+		defer c2.Release()
+		assert.Equal(t, *c, *c2)
 	})
 }

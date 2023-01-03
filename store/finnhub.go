@@ -38,7 +38,6 @@ func (f *Finnhub) Quote(candle *Candle, symbol string) error {
 		if cErr != nil {
 			return cErr
 		}
-		defer candles.Release()
 		if len(candles) < 1 {
 			return fmt.Errorf("no results founds")
 		}

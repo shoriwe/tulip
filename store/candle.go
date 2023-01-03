@@ -9,15 +9,15 @@ import (
 
 type (
 	Candle struct {
-		Symbol     string     `json:"symbol,omitempty" bson:"symbol"`
-		Timestamp  time.Time  `json:"timestamp,omitempty" bson:"timestamp"`
-		Resolution Resolution `json:"resolution,omitempty" bson:"resolution"`
-		Open       float64    `json:"open" bson:"open"`
-		High       float64    `json:"high" bson:"high"`
-		Low        float64    `json:"low" bson:"low"`
-		Close      float64    `json:"close" bson:"close"`
-		PrevClose  float64    `json:"prevClose,omitempty" bson:"-"`
-		Volume     float64    `json:"volume,omitempty" bson:"volume"`
+		Symbol     string     `json:"symbol,omitempty" gorm:"index:idx_unique_candle;unique"`
+		Timestamp  time.Time  `json:"timestamp,omitempty" gorm:"index:idx_unique_candle;unique"`
+		Resolution Resolution `json:"resolution,omitempty" gorm:"index:idx_unique_candle;unique"`
+		Open       float64    `json:"open" gorm:"index:idx_unique_candle;unique"`
+		High       float64    `json:"high" gorm:"index:idx_unique_candle;unique"`
+		Low        float64    `json:"low" gorm:"index:idx_unique_candle;unique"`
+		Close      float64    `json:"close" gorm:"index:idx_unique_candle;unique"`
+		PrevClose  float64    `json:"prevClose,omitempty" gorm:"index:idx_unique_candle;unique"`
+		Volume     float64    `json:"volume,omitempty" gorm:"index:idx_unique_candle;unique"`
 	}
 	Candles []*Candle
 )
@@ -35,6 +35,9 @@ func (candle *Candle) Release() {
 }
 
 func (candle *Candle) Bytes() []byte {
+	if candle.Timestamp.IsZero() {
+		candle.Timestamp = time.UnixMilli(time.Now().UnixMilli())
+	}
 	result := make([]byte, 57, 57+len(candle.Symbol))
 
 	timestamp := candle.Timestamp.UnixNano()
