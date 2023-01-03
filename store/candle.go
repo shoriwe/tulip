@@ -29,6 +29,7 @@ func NewCandle() *Candle {
 	(*candle) = Candle{}
 	return candle
 }
+
 func (candle *Candle) Release() {
 	candlePool.Put(candle)
 }
