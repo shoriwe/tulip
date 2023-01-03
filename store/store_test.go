@@ -1,7 +1,6 @@
 package store
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -40,8 +39,5 @@ func TestStore(t *testing.T) {
 		candles, qErr = s.Candles(Month, "AAPL", from.Add(-5*31*24*time.Hour), now)
 		assert.Nil(t, qErr)
 		assert.NotNil(t, candles)
-		for _, c := range candles {
-			fmt.Println(c)
-		}
 	})
 }
