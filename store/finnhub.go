@@ -67,6 +67,8 @@ func (f *Finnhub) Candles(res Resolution, symbol string, from time.Time, to time
 	candles := make([]*Candle, 0, len(sCandles.C))
 	for index := 0; index < len(sCandles.C); index++ {
 		candle := &Candle{}
+		candle.Symbol = symbol
+		candle.Resolution = res
 		candle.High = float64(sCandles.H[index])
 		candle.Open = float64(sCandles.O[index])
 		candle.Low = float64(sCandles.L[index])

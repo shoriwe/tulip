@@ -8,15 +8,15 @@ import (
 
 type (
 	Candle struct {
-		Symbol     string     `json:"symbol,omitempty" gorm:"index:idx_unique_candle;unique"`
-		Timestamp  time.Time  `json:"timestamp,omitempty" gorm:"index:idx_unique_candle;unique"`
-		Resolution Resolution `json:"resolution,omitempty" gorm:"index:idx_unique_candle;unique"`
-		Open       float64    `json:"open" gorm:"index:idx_unique_candle;unique"`
-		High       float64    `json:"high" gorm:"index:idx_unique_candle;unique"`
-		Low        float64    `json:"low" gorm:"index:idx_unique_candle;unique"`
-		Close      float64    `json:"close" gorm:"index:idx_unique_candle;unique"`
-		PrevClose  float64    `json:"prevClose,omitempty" gorm:"index:idx_unique_candle;unique"`
-		Volume     float64    `json:"volume,omitempty" gorm:"index:idx_unique_candle;unique"`
+		Symbol     string     `json:"symbol,omitempty" gorm:"index:idx_unique_candle,unique"`
+		Timestamp  time.Time  `json:"timestamp,omitempty" gorm:"index:idx_unique_candle,unique"`
+		Resolution Resolution `json:"resolution,omitempty" gorm:"index:idx_unique_candle,unique"`
+		Open       float64    `json:"open" gorm:"index:idx_unique_candle,unique"`
+		High       float64    `json:"high" gorm:"index:idx_unique_candle,unique"`
+		Low        float64    `json:"low" gorm:"index:idx_unique_candle,unique"`
+		Close      float64    `json:"close" gorm:"index:idx_unique_candle,unique"`
+		PrevClose  float64    `json:"prevClose,omitempty" gorm:"index:idx_unique_candle,unique"`
+		Volume     float64    `json:"volume,omitempty" gorm:"index:idx_unique_candle,unique"`
 	}
 )
 
