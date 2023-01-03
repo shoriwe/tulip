@@ -2,7 +2,6 @@ package store
 
 import (
 	"encoding/binary"
-	"sync"
 	"time"
 	"unsafe"
 )
@@ -19,20 +18,7 @@ type (
 		PrevClose  float64    `json:"prevClose,omitempty" gorm:"index:idx_unique_candle;unique"`
 		Volume     float64    `json:"volume,omitempty" gorm:"index:idx_unique_candle;unique"`
 	}
-	Candles []*Candle
 )
-
-var candlePool = sync.Pool{New: func() any { return &Candle{} }}
-
-func NewCandle() *Candle {
-	candle := candlePool.Get().(*Candle)
-	(*candle) = Candle{}
-	return candle
-}
-
-func (candle *Candle) Release() {
-	candlePool.Put(candle)
-}
 
 func (candle *Candle) Bytes() []byte {
 	if candle.Timestamp.IsZero() {
@@ -72,11 +58,4 @@ func (candle *Candle) FromBytes(b []byte) {
 	candle.Volume = *(*float64)(unsafe.Pointer(&volume))
 	candle.Resolution = *(*Resolution)(unsafe.Pointer(&b[56]))
 	candle.Symbol = string(b[57:])
-}
-
-func (candles Candles) Release() {
-	length := len(candles)
-	for i := 0; i < length; i++ {
-		candles[i].Release()
-	}
 }

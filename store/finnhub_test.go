@@ -20,9 +20,7 @@ func init() {
 func TestFinnhub(t *testing.T) {
 	t.Run("Quote",
 		func(t *testing.T) {
-			candle := NewCandle()
-			defer candle.Release()
-			qErr := NewFinnhub(finnhubToken).Quote(candle, "AAPL")
+			candle, qErr := NewFinnhub(finnhubToken).Quote("AAPL")
 			assert.Nil(t, qErr)
 			assert.Greater(t, candle.Open, 0.0)
 			assert.Greater(t, candle.High, 0.0)

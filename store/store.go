@@ -27,8 +27,8 @@ const (
 
 type (
 	Source interface {
-		Quote(candle *Candle, symbol string) error
-		Candles(res Resolution, symbol string, from, to time.Time) (Candles, error)
+		Quote(symbol string) (*Candle, error)
+		Candles(res Resolution, symbol string, from, to time.Time) ([]*Candle, error)
 	}
 	Store struct {
 		db     *gorm.DB
@@ -60,24 +60,23 @@ func (s *Store) Close() {
 }
 
 func (s *Store) Quote(symbol string) (*Candle, error) {
-	candle := NewCandle()
 	cacheKey := fmt.Sprintf("quote-%s", symbol)
 	// Check the cache
 	rawCandle, cacheErr := s.cache.Get(context.Background(), cacheKey)
 	if cacheErr == nil {
+		candle := &Candle{}
 		candle.FromBytes(rawCandle)
 		return candle, nil
 	}
 	// Query
-	quoteErr := s.source.Quote(candle, symbol)
+	candle, quoteErr := s.source.Quote(symbol)
 	if quoteErr != nil {
-		candle.Release()
 		return nil, quoteErr
 	}
 	s.cache.Set(context.Background(), cacheKey, candle.Bytes(), store.WithExpiration(time.Minute))
 	return candle, nil
 }
 
-func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) []*Candle {
-	panic("implement me!")
+func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) ([]*Candle, error) {
+	panic("Implement me!")
 }

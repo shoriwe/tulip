@@ -9,8 +9,7 @@ import (
 
 func TestCandle(t *testing.T) {
 	t.Run("Bytes", func(t *testing.T) {
-		candle := NewCandle()
-		defer candle.Release()
+		candle := &Candle{}
 		candle.Symbol = "AAPL"
 		candle.Timestamp = time.UnixMilli(time.Now().UnixMilli())
 		candle.Resolution = Day
@@ -23,8 +22,7 @@ func TestCandle(t *testing.T) {
 
 		bytes := candle.Bytes()
 
-		otherCandle := NewCandle()
-		defer otherCandle.Release()
+		otherCandle := &Candle{}
 		otherCandle.FromBytes(bytes)
 		assert.Equal(t, *candle, *otherCandle)
 	})
