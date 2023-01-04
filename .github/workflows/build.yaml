@@ -55,7 +55,10 @@ jobs:
       latest_version: ${{ steps.latest_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
-      
+
+      - name: Git identity
+        run: git config --global user.email "tulip@tulip.fake.domain" && git config --global user.name "GitHub Actions"
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
