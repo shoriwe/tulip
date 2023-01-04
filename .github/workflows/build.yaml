@@ -1,0 +1,78 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+
+  binaries:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linux
+        run: go build -v -o bin/tulip
+        env:
+          GOOS: linux
+          GOARCH: amd64
+
+      - name: Windows
+        run: go build -v -o bin/tulip.exe
+        env:
+          GOOS: windows
+          GOARCH: amd64
+
+  versioning:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Changelog
+        run: npx standard-version
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: versioning and changelog"
+      
+      - name: Latest version
+        run: node version.js
+  
+  release:
+    needs:
+      - binaries
+      - versioning
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub release
+        run: echo v${jobs.versioning.steps.latest_version.outputs.*}
+      
+      - name: Docker image
+        run: echo v${jobs.versioning.steps.latest_version.outputs.*}
