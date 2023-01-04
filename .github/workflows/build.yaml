@@ -55,6 +55,8 @@ jobs:
       version: ${{ steps.latest_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Git identity
         run: |
