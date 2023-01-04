@@ -57,4 +57,12 @@ func TestFinnhub(t *testing.T) {
 			assert.GreaterOrEqual(t, trend.Hold, int64(0))
 		},
 	)
+	t.Run("Peers",
+		func(t *testing.T) {
+			peers, pErr := NewFinnhub(finnhubToken).Peers("AAPL")
+			assert.Nil(t, pErr)
+			assert.Greater(t, len(peers), 0)
+		},
+	)
+
 }

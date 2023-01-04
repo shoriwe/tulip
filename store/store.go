@@ -2,6 +2,7 @@ package store
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"os"
 	"time"
@@ -31,6 +32,7 @@ type (
 		Quote(symbol string) (*Candle, error)
 		Candles(res Resolution, symbol string, from, to time.Time) ([]*Candle, error)
 		RecommendationTrends(symbol string) (*RecommendationTrends, error)
+		Peers(symbol string) ([]string, error)
 	}
 	Store struct {
 		db     *gorm.DB
@@ -136,4 +138,23 @@ func (s *Store) RecommendationTrends(symbol string) (*RecommendationTrends, erro
 	//
 	s.cache.Set(context.Background(), cacheKey, trend.Bytes(), store.WithExpiration(24*time.Hour))
 	return trend, nil
+}
+
+func (s *Store) Peers(symbol string) ([]string, error) {
+	cacheKey := fmt.Sprintf("peers-%s", symbol)
+	// Check the cache
+	rawPeers, cacheErr := s.cache.Get(context.Background(), cacheKey)
+	if cacheErr == nil {
+		var peers []string
+		pErr := json.Unmarshal(rawPeers, &peers)
+		return peers, pErr
+	}
+	//
+	peers, pErr := s.source.Peers(symbol)
+	if pErr != nil {
+		return nil, pErr
+	}
+	peerBytes, _ := json.Marshal(peers)
+	s.cache.Set(context.Background(), cacheKey, peerBytes, store.WithExpiration(24*time.Hour))
+	return peers, nil
 }

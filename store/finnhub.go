@@ -95,3 +95,8 @@ func (f *Finnhub) RecommendationTrends(symbol string) (*RecommendationTrends, er
 		Hold:       trend.Hold,
 	}, nil
 }
+
+func (f *Finnhub) Peers(symbol string) ([]string, error) {
+	peers, _, pErr := f.api.CompanyPeers(context.Background(), symbol)
+	return peers, pErr
+}

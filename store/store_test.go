@@ -40,4 +40,38 @@ func TestStore(t *testing.T) {
 		assert.Nil(t, qErr)
 		assert.NotNil(t, candles)
 	})
+	t.Run("RecommendationTrends", func(t *testing.T) {
+		s := NewTestStore()
+		defer s.Close()
+		trend, tErr := s.RecommendationTrends("AAPL")
+		assert.Nil(t, tErr)
+		total := trend.Buy + trend.StrongBuy + trend.Sell + trend.StrongSell + trend.Hold
+		assert.Greater(t, total, int64(0))
+		assert.GreaterOrEqual(t, trend.Buy, int64(0))
+		assert.GreaterOrEqual(t, trend.StrongBuy, int64(0))
+		assert.GreaterOrEqual(t, trend.Sell, int64(0))
+		assert.GreaterOrEqual(t, trend.StrongSell, int64(0))
+		assert.GreaterOrEqual(t, trend.Hold, int64(0))
+		// Repeat expect caching
+		trend, tErr = s.RecommendationTrends("AAPL")
+		assert.Nil(t, tErr)
+		total = trend.Buy + trend.StrongBuy + trend.Sell + trend.StrongSell + trend.Hold
+		assert.Greater(t, total, int64(0))
+		assert.GreaterOrEqual(t, trend.Buy, int64(0))
+		assert.GreaterOrEqual(t, trend.StrongBuy, int64(0))
+		assert.GreaterOrEqual(t, trend.Sell, int64(0))
+		assert.GreaterOrEqual(t, trend.StrongSell, int64(0))
+		assert.GreaterOrEqual(t, trend.Hold, int64(0))
+	})
+	t.Run("Peers", func(t *testing.T) {
+		s := NewTestStore()
+		defer s.Close()
+		peers, pErr := s.Peers("AAPL")
+		assert.Nil(t, pErr)
+		assert.NotNil(t, peers)
+		// Repeat but expect caching
+		peers, pErr = s.Peers("AAPL")
+		assert.Nil(t, pErr)
+		assert.NotNil(t, peers)
+	})
 }
