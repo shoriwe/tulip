@@ -44,4 +44,17 @@ func TestFinnhub(t *testing.T) {
 			assert.Greater(t, candle.Volume, 0.0)
 		},
 	)
+	t.Run("RecommendationTrends",
+		func(t *testing.T) {
+			trend, tErr := NewFinnhub(finnhubToken).RecommendationTrends("AAPL")
+			assert.Nil(t, tErr)
+			total := trend.Buy + trend.StrongBuy + trend.Sell + trend.StrongSell + trend.Hold
+			assert.Greater(t, total, int64(0))
+			assert.GreaterOrEqual(t, trend.Buy, int64(0))
+			assert.GreaterOrEqual(t, trend.StrongBuy, int64(0))
+			assert.GreaterOrEqual(t, trend.Sell, int64(0))
+			assert.GreaterOrEqual(t, trend.StrongSell, int64(0))
+			assert.GreaterOrEqual(t, trend.Hold, int64(0))
+		},
+	)
 }

@@ -30,6 +30,7 @@ type (
 	Source interface {
 		Quote(symbol string) (*Candle, error)
 		Candles(res Resolution, symbol string, from, to time.Time) ([]*Candle, error)
+		RecommendationTrends(symbol string) (*RecommendationTrends, error)
 	}
 	Store struct {
 		db     *gorm.DB
@@ -116,4 +117,23 @@ func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) ([]*C
 		return nil, iErr
 	}
 	return candles, nil
+}
+
+func (s *Store) RecommendationTrends(symbol string) (*RecommendationTrends, error) {
+	cacheKey := fmt.Sprintf("recommendation-trend-%s", symbol)
+	// Check the cache
+	rawTrend, cacheErr := s.cache.Get(context.Background(), cacheKey)
+	if cacheErr == nil {
+		trend := &RecommendationTrends{}
+		trend.FromBytes(rawTrend)
+		return trend, nil
+	}
+	//
+	trend, tErr := s.source.RecommendationTrends(symbol)
+	if tErr != nil {
+		return nil, tErr
+	}
+	//
+	s.cache.Set(context.Background(), cacheKey, trend.Bytes(), store.WithExpiration(24*time.Hour))
+	return trend, nil
 }

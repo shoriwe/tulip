@@ -80,3 +80,18 @@ func (f *Finnhub) Candles(res Resolution, symbol string, from time.Time, to time
 	}
 	return candles, nil
 }
+
+func (f *Finnhub) RecommendationTrends(symbol string) (*RecommendationTrends, error) {
+	trends, _, tErr := f.api.RecommendationTrends(context.Background(), symbol)
+	if tErr != nil {
+		return nil, tErr
+	}
+	trend := trends[0]
+	return &RecommendationTrends{
+		Buy:        trend.Buy,
+		StrongBuy:  trend.StrongBuy,
+		Sell:       trend.Sell,
+		StrongSell: trend.StrongSell,
+		Hold:       trend.Hold,
+	}, nil
+}
