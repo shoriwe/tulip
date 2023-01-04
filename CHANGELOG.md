@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.6.6](https://github.com/shoriwe/tulip/compare/v0.6.3...v0.6.6) (2023-01-04)
+### [0.6.7](https://github.com/shoriwe/tulip/compare/v0.6.3...v0.6.7) (2023-01-04)
 
 
 ### Features
