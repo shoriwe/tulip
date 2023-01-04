@@ -52,7 +52,7 @@ jobs:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     outputs:
-      latest_version: ${{ steps.latest_version.outputs.version }}
+      version: ${{ steps.latest_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
 
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub release
-        run: echo v${{ needs.versioning.outputs.latest_version }}
+        run: echo "v${{needs.versioning.outputs.version}}"
 
       - name: Docker image
-        run: echo v${{ needs.versioning.outputs.latest_version }}
+        run: echo "v${{needs.versioning.outputs.version}}"
