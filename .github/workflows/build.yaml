@@ -72,7 +72,7 @@ jobs:
 
       - name: Push changes
         run: |
-          git commit -am "docs: changelod and versioning"
+          git commit -m "docs: changelod and versioning"
           git push
 
       - id: latest_version
