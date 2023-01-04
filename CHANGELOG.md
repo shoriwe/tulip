@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.3](https://github.com/shoriwe/tulip/compare/v0.6.2...v0.6.3) (2023-01-04)
+
+
+### Features
+
+* added script to print the current version of the package ([b7ced77](https://github.com/shoriwe/tulip/commit/b7ced77eb9d72cb7f283f27bc9505e4d6fec7783))
+
+
+### Bug Fixes
+
+* added version to package json ([25f8cf2](https://github.com/shoriwe/tulip/commit/25f8cf225881f92a747347a67c43c94fd9cec571))
+* ensure binaries are never added to the repo ([1d13b91](https://github.com/shoriwe/tulip/commit/1d13b919d958e7db5434e45bd0a4b2134105636e))
+
 ### 0.6.2 (2023-01-04)
 
 
