@@ -54,14 +54,12 @@ jobs:
     outputs:
       version: ${{ steps.latest_version.outputs.version }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      - name: Git identity
+      - name: Set up repository
         run: |
-          git config --global user.email "tulip@tulip.fake.domain"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "antoniojosedonishung@gmail.com"
+          git config --global user.name "Antonio Donis"
+          git clone github.com/shoriwe/tulip
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -73,7 +71,7 @@ jobs:
         run: npx standard-version
 
       - name: Push changes
-        run: git push
+        run: git push --follow-tags origin main
 
       - id: latest_version
         name: Latest version
