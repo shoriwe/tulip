@@ -1,2 +1,2 @@
 const package = require('./package.json');
-console.log(package.version);
+console.log(`version=${package.version}`);

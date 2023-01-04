@@ -73,7 +73,7 @@ jobs:
           commit_message: "docs: versioning and changelog"
 
       - name: Latest version
-        run: echo "version=${node version.js}" >> $GITHUB_OUTPUT
+        run: node version.js >> $GITHUB_OUTPUT
 
   release:
     needs:
