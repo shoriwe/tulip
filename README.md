@@ -4,6 +4,6 @@
 
 Extensible market data REST API
 
-## Extending the `Source`
+## Extending tulip
 
-To extend tulip you can write your own `Source` interface implementation querying for the necesarry data sources you need
+To extend tulip you can write your own `Source` interface implementations, querying for the necesarry data sources you need, such as Yahoo finance API...
