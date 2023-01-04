@@ -55,11 +55,11 @@ jobs:
       version: ${{ steps.latest_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Git Identity
         run: |
+          git checkout main
+          git fetch --all --tags
           git config --global user.email "antoniojosedonishung@gmail.com"
           git config --global user.name "Antonio Donis"
 
