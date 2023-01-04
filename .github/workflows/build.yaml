@@ -72,7 +72,8 @@ jobs:
         with:
           commit_message: "docs: versioning and changelog"
 
-      - name: Latest version
+      - id: latest_version
+        name: Latest version
         run: node version.js >> $GITHUB_OUTPUT
 
   release:
