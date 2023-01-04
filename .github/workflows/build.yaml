@@ -4,7 +4,6 @@
 name: Build
 
 on:
-  pull_request:
   push:
     branches: ["main"]
 
@@ -24,6 +23,8 @@ jobs:
 
       - name: Test
         run: go test -v ./...
+        env:
+          FINNHUB: ${{ secret.FINNHUB }}
 
   binaries:
     needs: build
@@ -61,10 +62,10 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "docs: versioning and changelog"
-      
+
       - name: Latest version
         run: node version.js
-  
+
   release:
     needs:
       - binaries
@@ -72,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub release
-        run: echo v${jobs.versioning.steps.latest_version.outputs.*}
-      
+        run: echo v${{ jobs.versioning.steps.latest_version.outputs.* }}
+
       - name: Docker image
-        run: echo v${jobs.versioning.steps.latest_version.outputs.*}
+        run: echo v${{ jobs.versioning.steps.latest_version.outputs.* }}
