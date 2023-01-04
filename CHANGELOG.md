@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.11 (2023-01-04)
+
+
+### Bug Fixes
+
+* added description for how to extend tulip ([6a21632](https://github.com/shoriwe/tulip/commit/6a216328cce6439d045ee7f20171c48353e81e47))
+
 ### 0.6.10 (2023-01-04)
 
 
