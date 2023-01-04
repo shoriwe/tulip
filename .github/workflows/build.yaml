@@ -71,9 +71,7 @@ jobs:
         run: npx standard-version
 
       - name: Push changes
-        run: |
-          git commit -m "docs: changelod and versioning"
-          git push
+        run: git push
 
       - id: latest_version
         name: Latest version
