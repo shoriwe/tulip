@@ -59,7 +59,7 @@ jobs:
         run: |
           git config --global user.email "antoniojosedonishung@gmail.com"
           git config --global user.name "Antonio Donis"
-          git clone github.com/shoriwe/tulip
+          git clone https://github.com/shoriwe/tulip
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
