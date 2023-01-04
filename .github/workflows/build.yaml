@@ -24,7 +24,7 @@ jobs:
       - name: Test
         run: go test -v ./...
         env:
-          FINNHUB: ${{ secret.FINNHUB }}
+          FINNHUB: ${{ secrets.FINNHUB }}
 
   binaries:
     needs: build
