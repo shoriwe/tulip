@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Git identity
-        run: | 
+        run: |
           git config --global user.email "tulip@tulip.fake.domain"
           git config --global user.name "GitHub Actions"
 
@@ -71,7 +71,7 @@ jobs:
         run: npx standard-version
 
       - name: Push changes
-        run: | 
+        run: |
           git commit -am "docs: changelod and versioning"
           git push
 
