@@ -49,7 +49,7 @@ jobs:
         run: npx standard-version --dry-run && npx standard-version
 
       - name: Push changes
-        run: git push --follow-tags origin main
+        run: git push --follow-tags origin dev
 
       - id: latest_version
         name: Latest version
