@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.15 (2023-01-05)
+
+
+### Bug Fixes
+
+* removed origin from git fetch ([38262b3](https://github.com/shoriwe/tulip/commit/38262b3408bf6a615a9c5e1f4b8bf361aecd5984))
+
 ### 0.6.14 (2023-01-05)
 
 ### 0.6.13 (2023-01-05)
