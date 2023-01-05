@@ -56,18 +56,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Git Identity
-        run: |
-          git checkout main
-          git fetch --all --tags
-          git config --global user.email "antoniojosedonishung@gmail.com"
-          git config --global user.name "Antonio Donis"
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+      
+      - name: Git Identity
+        run: |
+          git checkout $(node current.js)
+          git fetch --all --tags
+          git config --global user.email "antoniojosedonishung@gmail.com"
+          git config --global user.name "Antonio Donis"
 
       - name: Changelog
         run: npx standard-version
