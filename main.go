@@ -1,7 +1,11 @@
-package tulip
+/*
+Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 
-import "fmt"
+*/
+package main
+
+import "github.com/shoriwe/tulip/cmd"
 
 func main() {
-	fmt.Println("TODO")
+	cmd.Execute()
 }
