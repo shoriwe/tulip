@@ -61,7 +61,7 @@ jobs:
       
       - name: Git Identity
         run: |
-          git fetch --all --tags origin
+          git fetch --all --tags
           git config --global user.email "antoniojosedonishung@gmail.com"
           git config --global user.name "Antonio Donis"
 
