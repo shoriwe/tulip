@@ -6,8 +6,6 @@
     <img style="width: 50%; height: auto;" src="logo.png"/>
 </p>
 
-
-
 Extensible market data REST API, made with the intention to interact with multiple market data sources but using the same interface for all.
 
 ## Extending tulip
