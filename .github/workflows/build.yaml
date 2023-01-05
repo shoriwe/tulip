@@ -47,24 +47,20 @@ jobs:
   versioning:
     needs: build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     outputs:
       version: ${{ steps.latest_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup node 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
           cache: "npm"
       
       - name: Git Identity
         run: |
-          git checkout $(node current.js)
           git fetch --all --tags
           git config --global user.email "antoniojosedonishung@gmail.com"
           git config --global user.name "Antonio Donis"
