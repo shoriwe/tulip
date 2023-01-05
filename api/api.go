@@ -19,6 +19,7 @@ func NewAPI(store *store.Store) *echo.Echo {
 	}
 	e := echo.New()
 	e.GET(SymbolQuoteRouteWithParams, api.SymbolQuote)
+	e.GET(SymbolCandlesRouteWithParams, api.SymbolCandles)
 	return e
 }
 
