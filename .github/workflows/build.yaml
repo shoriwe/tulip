@@ -66,7 +66,7 @@ jobs:
           git config --global user.name "Antonio Donis"
 
       - name: Changelog
-        run: npx standard-version
+        run: npx standard-version --dry-run && npx standard-version
 
       - name: Push changes
         run: git push --follow-tags origin main
