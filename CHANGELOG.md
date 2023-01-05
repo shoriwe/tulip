@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.16 (2023-01-05)
+
+
+### Bug Fixes
+
+* added dry run for debugging ([ea1e449](https://github.com/shoriwe/tulip/commit/ea1e449e0721f8396d991a086d1883711a852e79))
+
 ### 0.6.15 (2023-01-05)
 
 
