@@ -2,8 +2,58 @@
 
 [![Build](https://github.com/shoriwe/tulip/actions/workflows/build.yaml/badge.svg)](https://github.com/shoriwe/tulip/actions/workflows/build.yaml)
 
-Extensible market data REST API
+<p align="center">
+    <img style="width: 50%; height: auto;" src="logo.png"/>
+</p>
+
+
+
+Extensible market data REST API, made with the intention to interact with multiple market data sources but using the same interface for all.
 
 ## Extending tulip
 
-To extend tulip you can write your own `Source` interface implementations, querying for the necesarry data sources you need, such as Yahoo finance API...
+To extend tulip you can write your own `Source` interface implementations, querying for the necessary data sources you need, such as Yahoo finance API...
+
+## REST API
+
+### Documentation
+
+Coming soon...
+
+### Clients
+
+Coming soon...
+
+## Binaries
+
+You will find pre-build binaries at the [release](https://github.com/shoriwe/tulip/releases) section. Is none of these binaries targets your platform use [Go command](#Go-command)
+
+## Docker image
+
+```shell
+docker pull ghcr.io/shoriwe/tulip:latest
+```
+
+## Building from source
+
+### Go command
+
+```shell
+go install github.com/shoriwe/tulip@latest
+```
+
+### Local build
+
+```shell
+git clone https://github.com/shoriwe/tulip
+cd tulip
+mkdir -p bin && go build -o bin/ .
+```
+
+### Docker image
+
+```shell
+git clone https://github.com/shoriwe/tulip
+cd tulip
+docker build -t tulip .
+```

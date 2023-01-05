@@ -7,9 +7,9 @@ import (
 
 type RecommendationTrends struct {
 	Buy        int64 `json:"buy"`
-	StrongBuy  int64 `json:"stringBuy"`
+	StrongBuy  int64 `json:"strongBuy"`
 	Sell       int64 `json:"sell"`
-	StrongSell int64 `json:"stringSell"`
+	StrongSell int64 `json:"strongSell"`
 	Hold       int64 `json:"hold"`
 }
 
