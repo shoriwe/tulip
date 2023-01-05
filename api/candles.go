@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (a *API) SymbolCandles(ctx echo.Context) error {
+func (a *API) Candles(ctx echo.Context) error {
 	// Resolution param
 	res, ok := Resolutions[ctx.Param(ResolutionParam)]
 	if !ok {

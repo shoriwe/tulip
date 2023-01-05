@@ -10,14 +10,18 @@ const (
 )
 
 const (
-	SymbolQuoteRoute             = "/symbol/quote/"
-	SymbolQuoteRouteWithParams   = SymbolQuoteRoute + ":" + SymbolParam
-	SymbolCandlesRoute           = "/symbol/candles/"
-	SymbolCandlesRouteWithParams = SymbolCandlesRoute + ":" +
+	QuoteRoute             = "/quote/"
+	QuoteRouteWithParams   = QuoteRoute + ":" + SymbolParam
+	CandlesRoute           = "/candles/"
+	CandlesRouteWithParams = CandlesRoute + ":" +
 		SymbolParam + "/:" +
 		ResolutionParam + "/:" +
 		FromParam + "/:" +
 		ToParam
+	RecommendationTrendsRoute           = "/recommendation/trends/"
+	RecommendationTrendsRouteWithParams = RecommendationTrendsRoute + ":" + SymbolParam
+	PeersRoute                          = "/peers/"
+	PeersRouteWithParams                = PeersRoute + ":" + SymbolParam
 )
 
 const (

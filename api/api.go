@@ -18,8 +18,12 @@ func NewAPI(store *store.Store) *echo.Echo {
 		store: store,
 	}
 	e := echo.New()
-	e.GET(SymbolQuoteRouteWithParams, api.SymbolQuote)
-	e.GET(SymbolCandlesRouteWithParams, api.SymbolCandles)
+	// Routes
+	e.GET(QuoteRouteWithParams, api.Quote)
+	e.GET(CandlesRouteWithParams, api.Candles)
+	e.GET(RecommendationTrendsRouteWithParams, api.RecommendationTrends)
+	e.GET(PeersRouteWithParams, api.Peers)
+	//
 	return e
 }
 

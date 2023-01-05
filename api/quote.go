@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (a *API) SymbolQuote(ctx echo.Context) error {
+func (a *API) Quote(ctx echo.Context) error {
 	candle, qErr := a.store.Quote(ctx.Param(SymbolParam))
 	if qErr != nil {
 		return qErr

@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-func TestAPI_SymbolQuote(t *testing.T) {
+func TestAPI_Quote(t *testing.T) {
 	server, expect := NewTestAPI(t)
 	defer server.Close()
-	candleObject := expect.GET(SymbolQuoteRoute + "AAPL").
+	candleObject := expect.GET(QuoteRoute + "AAPL").
 		Expect().
 		Status(http.StatusOK).
 		JSON().
