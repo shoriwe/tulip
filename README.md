@@ -2,7 +2,11 @@
 
 [![Build](https://github.com/shoriwe/tulip/actions/workflows/build.yaml/badge.svg)](https://github.com/shoriwe/tulip/actions/workflows/build.yaml)
 
-<img style="width: 50%; height: auto;" src="logo.png"/>
+<p align="center">
+    <img style="width: 50%; height: auto;" src="logo.png"/>
+</p>
+
+
 
 Extensible market data REST API, made with the intention to interact with multiple market data sources but using the same interface for all.
 
