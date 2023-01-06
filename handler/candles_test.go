@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"fmt"
@@ -10,8 +10,8 @@ import (
 	"github.com/shoriwe/tulip/store"
 )
 
-func TestAPI_Candles(t *testing.T) {
-	server, expect := NewTestAPI(t)
+func TestHandler_Candles(t *testing.T) {
+	server, expect := NewTestHandler(t)
 	defer server.Close()
 	now := time.Now()
 	route := fmt.Sprintf("%s%s/%s/%s/%s",

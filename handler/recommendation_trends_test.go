@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"net/http"
@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAPI_RecommendationTrends(t *testing.T) {
-	server, expect := NewTestAPI(t)
+func TestHandler_RecommendationTrends(t *testing.T) {
+	server, expect := NewTestHandler(t)
 	defer server.Close()
 	trendObject := expect.GET(RecommendationTrendsRoute + "AAPL").
 		Expect().
