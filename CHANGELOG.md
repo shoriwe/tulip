@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.22 (2023-01-06)
+
+
+### Bug Fixes
+
+* removed binaries job dependency from release job ([5a28e37](https://github.com/shoriwe/tulip/commit/5a28e379d55342d0ad854ddbda693a792c2e53b7))
+
 ### 0.6.21 (2023-01-06)
 
 
