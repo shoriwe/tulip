@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"net/http"
@@ -6,8 +6,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (a *API) Peers(ctx echo.Context) error {
-	peers, pErr := a.store.Peers(ctx.Param(SymbolParam))
+func (h *Handler) Peers(ctx echo.Context) error {
+	peers, pErr := h.store.Peers(ctx.Param(SymbolParam))
 	if pErr != nil {
 		return pErr
 	}

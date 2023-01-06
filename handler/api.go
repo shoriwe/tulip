@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"net/http/httptest"
@@ -9,12 +9,12 @@ import (
 	"github.com/shoriwe/tulip/store"
 )
 
-type API struct {
+type Handler struct {
 	store *store.Store
 }
 
-func NewAPI(store *store.Store) *echo.Echo {
-	api := &API{
+func NewHandler(store *store.Store) *echo.Echo {
+	api := &Handler{
 		store: store,
 	}
 	e := echo.New()
@@ -27,8 +27,8 @@ func NewAPI(store *store.Store) *echo.Echo {
 	return e
 }
 
-func NewTestAPI(t *testing.T) (*httptest.Server, *httpexpect.Expect) {
-	a := NewAPI(store.NewTestStore())
+func NewTestHandler(t *testing.T) (*httptest.Server, *httpexpect.Expect) {
+	a := NewHandler(store.NewTestStore())
 	server := httptest.NewServer(a)
 	expect := httpexpect.Default(t, server.URL)
 	return server, expect

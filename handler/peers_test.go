@@ -1,12 +1,12 @@
-package api
+package handler
 
 import (
 	"net/http"
 	"testing"
 )
 
-func TestAPI_Peers(t *testing.T) {
-	server, expect := NewTestAPI(t)
+func TestHandler_Peers(t *testing.T) {
+	server, expect := NewTestHandler(t)
 	defer server.Close()
 	expect.GET(PeersRoute + "AAPL").
 		Expect().

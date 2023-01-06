@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func (a *API) Candles(ctx echo.Context) error {
+func (h *Handler) Candles(ctx echo.Context) error {
 	// Resolution param
 	res, ok := Resolutions[ctx.Param(ResolutionParam)]
 	if !ok {
@@ -29,7 +29,7 @@ func (a *API) Candles(ctx echo.Context) error {
 		return toErr
 	}
 	to := time.UnixMilli(toInt)
-	candles, cErr := a.store.Candles(res, symbol, from, to)
+	candles, cErr := h.store.Candles(res, symbol, from, to)
 	if cErr != nil {
 		return cErr
 	}

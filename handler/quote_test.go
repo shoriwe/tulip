@@ -1,12 +1,12 @@
-package api
+package handler
 
 import (
 	"net/http"
 	"testing"
 )
 
-func TestAPI_Quote(t *testing.T) {
-	server, expect := NewTestAPI(t)
+func TestHandler_Quote(t *testing.T) {
+	server, expect := NewTestHandler(t)
 	defer server.Close()
 	candleObject := expect.GET(QuoteRoute + "AAPL").
 		Expect().

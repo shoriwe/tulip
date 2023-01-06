@@ -3,7 +3,7 @@ package cmd
 import (
 	"log"
 
-	"github.com/shoriwe/tulip/api"
+	"github.com/shoriwe/tulip/handler"
 	"github.com/shoriwe/tulip/store"
 	"github.com/spf13/cobra"
 )
@@ -19,7 +19,7 @@ var finnhubCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		source := store.NewFinnhub(*finnhubToken)
 		s := store.NewStore(db, c, source)
-		server := api.NewAPI(s)
+		server := handler.NewHandler(s)
 		serverErr := server.Start(*listen)
 		if serverErr != nil {
 			log.Fatal(serverErr)
