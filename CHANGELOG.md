@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.28 (2023-01-06)
+
+
+### Bug Fixes
+
+* directly installing UPX ([cf53be1](https://github.com/shoriwe/tulip/commit/cf53be1d01c27dde714e8ba0a84ae6d1bf3fb8af))
+
 ### 0.6.27 (2023-01-06)
 
 ### 0.6.26 (2023-01-06)
