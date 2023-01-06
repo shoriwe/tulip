@@ -1,34 +1,28 @@
-/*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
 	"os"
+	"strings"
 
+	"github.com/eko/gocache/lib/v4/cache"
+	"github.com/shoriwe/tulip/common"
 	"github.com/spf13/cobra"
+	"gorm.io/gorm"
 )
 
+var (
+	listen *string
+	db     *gorm.DB
+	c      *cache.Cache[[]byte]
+)
 
-
-// rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "tulip",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Short: "tulip market data REST API",
+	Long: `tulip is a market data REST API intended to be used as a 
+single interface for querying and chaching different market data sources`,
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -37,15 +31,14 @@ func Execute() {
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
+	listen = rootCmd.PersistentFlags().StringP("listen", "l", "127.0.0.1:5000", "Listen address for the REST API")
+	sqlURL := rootCmd.PersistentFlags().StringP("sql", "s", "sqlite://file::memory:?cache=shared", "SQLite URL or PostgreSQL URL")
+	cacheSource := rootCmd.PersistentFlags().StringP("cache", "x", ":memory:", "Memory cache or redis address")
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.tulip.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	if strings.Index(*sqlURL, "sqlite://") == 0 {
+		db = common.NewSQLite((*sqlURL)[9:])
+	}
+	if *cacheSource == ":memory:" {
+		c = common.NewBigCache()
+	}
 }
-
-
