@@ -75,6 +75,7 @@ jobs:
         id: cache-upx
         with:
           path: "~/upx"
+          key: UPX
       - name: Install UPX
         env:
           CACHE_HIT: ${{steps.cache-upx.outputs.cache-hit}}
