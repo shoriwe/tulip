@@ -82,10 +82,9 @@ jobs:
         run: |
           if [[ "$CACHE_HIT" != 'true' ]]; then
             mkdir -p ~/upx
-            cd ~/upx
-            wget https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz
-            tar -zxf upx-4.0.1-amd64_linux.tar.xz
-            chmod -R 700 ~/upx 
+            wget -O ~/upx/upx.tar.xz https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz
+            tar -xf ~/upx/upx.tar.xz -C ~/upx/
+            chmod -R 700 ~/upx
           fi
       # Done
       - uses: actions/checkout@v3
