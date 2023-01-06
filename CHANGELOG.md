@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.21 (2023-01-06)
+
+
+### Features
+
+* added contributing guidelines  ([ad78fb9](https://github.com/shoriwe/tulip/commit/ad78fb98dff9a9df516f4309f82acc0a4729b5bc))
+
 ### 0.6.20 (2023-01-06)
 
 
