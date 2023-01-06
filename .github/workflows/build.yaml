@@ -64,29 +64,14 @@ jobs:
       - versioning
     runs-on: ubuntu-latest
     steps:
-      # Caching Dependencies
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: 1.19
-      # Caching UPX
-      - name: Cache UPX
-        uses: actions/cache@v2
-        id: cache-upx
-        with:
-          path: "~/upx"
-          key: UPX
+
       - name: Install UPX
-        env:
-          CACHE_HIT: ${{steps.cache-upx.outputs.cache-hit}}
-        run: |
-          if [[ "$CACHE_HIT" != 'true' ]]; then
-            mkdir -p ~/upx
-            wget -O ~/upx/upx.tar.xz https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz
-            tar -xf ~/upx/upx.tar.xz -C ~/upx/
-            chmod -R 700 ~/upx
-          fi
-      # Done
+        run: apt-get install upx
+
       - uses: actions/checkout@v3
 
       - name: Linux binary
@@ -102,7 +87,7 @@ jobs:
           GOARCH: amd64
 
       - name: UPX binaries
-        run: ~/upx/upx bin/tulip && ~/upx/upx bin/tulip.exe
+        run: upx bin/*
 
       - name: GitHub release
         uses: softprops/action-gh-release@v1
