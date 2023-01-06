@@ -80,12 +80,12 @@ jobs:
         env:
           CACHE_HIT: ${{steps.cache-upx.outputs.cache-hit}}
         run: |
-          if [[ "$CACHE_HIT" == 'true' ]]; then
-            sudo cp --verbose --force --recursive ~/upx/* /
-          else
-            sudo apt-get install --yes upx
+          if [[ "$CACHE_HIT" != 'true' ]]; then
             mkdir -p ~/upx
-            sudo dpkg -L upx | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/upx/
+            cd ~/upx
+            wget https://github.com/upx/upx/releases/download/v4.0.1/upx-4.0.1-amd64_linux.tar.xz
+            tar -zxf upx-4.0.1-amd64_linux.tar.xz
+            chmod -R 700 ~/upx 
           fi
       # Done
       - uses: actions/checkout@v3
@@ -103,7 +103,7 @@ jobs:
           GOARCH: amd64
 
       - name: UPX binaries
-        run: upx bin/tulip && upx bin/tulip.exe
+        run: ~/upx/upx bin/tulip && ~/upx/upx bin/tulip.exe
 
       - name: GitHub release
         uses: softprops/action-gh-release@v1
