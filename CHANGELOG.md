@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.20 (2023-01-06)
+
+
+### Features
+
+* added extra CI/CD pipeline for dev branch ([#5](https://github.com/shoriwe/tulip/issues/5)) ([f7ab3ca](https://github.com/shoriwe/tulip/commit/f7ab3ca68c59fdb6c072cf5c924f06aba6768c76))
+
 ### 0.6.19 (2023-01-05)
 
 
