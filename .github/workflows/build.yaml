@@ -28,8 +28,9 @@ jobs:
 
   versioning:
     needs: build
-    runs-on: ubuntu-latest
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    runs-on:
+      ubuntu-latest
+      # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     outputs:
       version: ${{ steps.latest_version.outputs.version }}
     steps:
@@ -40,7 +41,7 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      
+
       - name: Git Identity
         run: |
           git checkout main
@@ -49,7 +50,7 @@ jobs:
           git config --global user.name "Antonio Donis"
 
       - name: Changelog
-        run: "npx standard-version --releaseCommitMessageFormat \"[ci skip] chore(release): %s\""
+        run: 'npx standard-version --message "[ci skip] chore(release): %s"'
 
       - name: Push changes
         run: git push --follow-tags origin main
@@ -58,13 +59,36 @@ jobs:
         name: Latest version
         run: node version.js >> $GITHUB_OUTPUT
 
-  release:
+  release-github:
     needs:
       - versioning
     runs-on: ubuntu-latest
     steps:
+      # Caching Dependencies
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+      # Caching UPX
+      - name: Cache UPX
+        uses: actions/cache@v2
+        id: cache-upx
+        with:
+          path: "~/upx"
+      - name: Install UPX
+        env:
+          CACHE_HIT: ${{steps.cache-upx.outputs.cache-hit}}
+        run: |
+          if [[ "$CACHE_HIT" == 'true' ]]; then
+            sudo cp --verbose --force --recursive ~/upx/* /
+          else
+            sudo apt-get install --yes upx
+            mkdir -p ~/upx
+            sudo dpkg -L upx | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/upx/
+          fi
+      # Done
       - uses: actions/checkout@v3
-      
+
       - name: Linux binary
         run: go build -v -o bin/tulip
         env:
@@ -77,6 +101,9 @@ jobs:
           GOOS: windows
           GOARCH: amd64
 
+      - name: UPX binaries
+        run: upx bin/tulip && upx bin/tulip.exe
+
       - name: GitHub release
         uses: softprops/action-gh-release@v1
         with:
@@ -84,7 +111,13 @@ jobs:
             bin/tulip
             bin/tulip.exe
           tag_name: v${{needs.versioning.outputs.version}}
-        #run: echo "v${{needs.versioning.outputs.version}}"
+
+  release-docker:
+    needs:
+      - versioning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
       - name: Docker image
         run: echo "v${{needs.versioning.outputs.version}}"
