@@ -1,7 +1,7 @@
 # tulip
 
 [![Build](https://github.com/shoriwe/tulip/actions/workflows/build.yaml/badge.svg)](https://github.com/shoriwe/tulip/actions/workflows/build.yaml)
-[![codecov](https://codecov.io/github/shoriwe/tulip/branch/main/graph/badge.svg?token=6XUX3TJC2N)](https://codecov.io/github/shoriwe/tulip)
+[![codecov](https://codecov.io/gh/shoriwe/tulip/branch/main/graph/badge.svg?token=3XP6AV109Z)](https://codecov.io/gh/shoriwe/tulip)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/shoriwe/tulip)
 [![Go Report Card](https://goreportcard.com/badge/github.com/shoriwe/tulip)](https://goreportcard.com/report/github.com/shoriwe/tulip)
 
