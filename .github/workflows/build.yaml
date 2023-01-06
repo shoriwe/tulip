@@ -136,5 +136,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: tulip:latest,tulip:v${{needs.versioning.outputs.version}}
+          tags: shoriwe/tulip:latest,shoriwe/tulip:${{needs.versioning.outputs.version}}
           labels: ${{ steps.meta.outputs.labels }}
