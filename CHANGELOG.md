@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.35 (2023-01-06)
+
+
+### Bug Fixes
+
+* added API clients to tittle ([4c7aac4](https://github.com/shoriwe/tulip/commit/4c7aac49edb2d42ad1515a476a5de298e529faef))
+
 ### 0.6.34 (2023-01-06)
 
 
