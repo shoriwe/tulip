@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.31 (2023-01-06)
+
+
+### Features
+
+* docs and docker image ([#13](https://github.com/shoriwe/tulip/issues/13)) ([3abe08f](https://github.com/shoriwe/tulip/commit/3abe08ffd93e4bea4439a44106b29acb659da915))
+
 ### 0.6.30 (2023-01-06)
 
 ### 0.6.29 (2023-01-06)
