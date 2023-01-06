@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.34 (2023-01-06)
+
+
+### Bug Fixes
+
+* added ghrc.io to the tag name ([bee2774](https://github.com/shoriwe/tulip/commit/bee2774c4865c0f93e1ae296cf61154d6788584b))
+
 ### 0.6.33 (2023-01-06)
 
 
