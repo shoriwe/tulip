@@ -2,6 +2,12 @@
 
 [![Build](https://github.com/shoriwe/tulip/actions/workflows/build.yaml/badge.svg)](https://github.com/shoriwe/tulip/actions/workflows/build.yaml)
 
+[![codecov](https://codecov.io/github/shoriwe/tulip/branch/main/graph/badge.svg?token=6XUX3TJC2N)](https://codecov.io/github/shoriwe/tulip)
+
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/shoriwe/tulip)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/shoriwe/tulip)](https://goreportcard.com/report/github.com/shoriwe/tulip)
+
 <p align="center">
     <img style="width: 50%; height: auto;" src="logo.png"/>
 </p>
