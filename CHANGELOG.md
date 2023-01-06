@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.30 (2023-01-06)
+
+### 0.6.29 (2023-01-06)
+
+
+### Bug Fixes
+
+* added sudo to the upx install command ([0033396](https://github.com/shoriwe/tulip/commit/003339618c290e4b8b2f7fd5510428b6e8cc14ef))
+
 ### 0.6.28 (2023-01-06)
 
 
