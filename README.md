@@ -62,3 +62,7 @@ git clone https://github.com/shoriwe/tulip
 cd tulip
 docker build -t tulip .
 ```
+
+## Coverage
+
+![coverage](https://codecov.io/gh/shoriwe/tulip/branch/main/graphs/sunburst.svg?token=3XP6AV109Z)
