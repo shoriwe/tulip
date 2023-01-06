@@ -63,6 +63,8 @@ jobs:
       - versioning
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      
       - name: Linux binary
         run: go build -v -o bin/tulip
         env:
