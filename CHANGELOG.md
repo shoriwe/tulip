@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.32 (2023-01-06)
+
+
+### Bug Fixes
+
+* custom tagging for docker image ([6f57c30](https://github.com/shoriwe/tulip/commit/6f57c304ebbaa1107ad868048c57decbae0d755d))
+
 ### 0.6.31 (2023-01-06)
 
 
