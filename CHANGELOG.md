@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.25 (2023-01-06)
+
+
+### Bug Fixes
+
+* added key to github action cache ([77a1c63](https://github.com/shoriwe/tulip/commit/77a1c638163387b5bab3f2030ff1b71370e7c915))
+
 ### 0.6.24 (2023-01-06)
 
 
