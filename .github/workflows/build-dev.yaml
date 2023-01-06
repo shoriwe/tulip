@@ -1,11 +1,8 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Build
+name: Build dev
 
 on:
   push:
-    branches: ["main"]
+    branches: ["dev"]
 
 jobs:
   build:
@@ -25,25 +22,7 @@ jobs:
         run: go test -v ./...
         env:
           FINNHUB: ${{ secrets.FINNHUB }}
-
-  binaries:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Linux
-        run: go build -v -o bin/tulip
-        env:
-          GOOS: linux
-          GOARCH: amd64
-
-      - name: Windows
-        run: go build -v -o bin/tulip.exe
-        env:
-          GOOS: windows
-          GOARCH: amd64
-
+  
   versioning:
     needs: build
     runs-on: ubuntu-latest
@@ -61,7 +40,7 @@ jobs:
       
       - name: Git Identity
         run: |
-          git checkout main
+          git checkout dev
           git fetch --all --tags
           git config --global user.email "antoniojosedonishung@gmail.com"
           git config --global user.name "Antonio Donis"
@@ -70,20 +49,8 @@ jobs:
         run: npx standard-version --dry-run && npx standard-version
 
       - name: Push changes
-        run: git push --follow-tags origin main
+        run: git push --follow-tags origin dev
 
       - id: latest_version
         name: Latest version
         run: node version.js >> $GITHUB_OUTPUT
-
-  release:
-    needs:
-      - binaries
-      - versioning
-    runs-on: ubuntu-latest
-    steps:
-      - name: GitHub release
-        run: echo "v${{needs.versioning.outputs.version}}"
-
-      - name: Docker image
-        run: echo "v${{needs.versioning.outputs.version}}"

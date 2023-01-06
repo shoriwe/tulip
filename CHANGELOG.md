@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.19 (2023-01-05)
+
+
+### Bug Fixes
+
+* added change push to origin to push to dev ([7c437c1](https://github.com/shoriwe/tulip/commit/7c437c1c1c865cd811424288b70167285d5ba537))
+
 ### 0.6.18 (2023-01-05)
 
 ### 0.6.17 (2023-01-05)
