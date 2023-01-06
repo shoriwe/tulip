@@ -1,0 +1,172 @@
+openapi: 3.0.3
+info:
+  title: tulip API
+  description: |-
+    Documentation for the [tulip](https://github.com/shoriwe/tulip) API.
+
+  contact:
+    email: antoniojosedonishung@gmail.com
+  license:
+    name: MIT
+    url: https://github.com/shoriwe/tulip/blob/main/LICENSE
+  version: TBA
+tags:
+  - name: symbol
+    description: Query information about specific symbols
+paths:
+  /quote/{symbol}:
+    get:
+      tags:
+        - symbol
+      description: Quote the latest price for a Symbol
+      parameters:
+        - in: path
+          required: true
+          name: symbol
+          schema:
+            type: string
+            example: AAPL
+      responses:
+        200:
+          description: Last candle returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/candle"
+  /candles/{symbol}/{resolution}/{from}/{to}:
+    get:
+      tags:
+        - symbol
+      description: Get the historical candles of symbol
+      parameters:
+        - in: path
+          required: true
+          name: symbol
+          schema:
+            type: string
+            example: AAPL
+        - in: path
+          required: true
+          name: resolution
+          schema:
+            $ref: "#/components/schemas/resolution"
+        - in: path
+          description: UNIX timestamp millisecond
+          required: true
+          name: from
+          schema:
+            type: number
+            example: 1673023865007
+        - in: path
+          description: UNIX timestamp millisecond
+          required: true
+          name: to
+          schema:
+            type: number
+            example: 1673023865007
+      responses:
+        200:
+          description: List of candles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/candle"
+  /recommendation/trends/{symbol}:
+    get:
+      tags:
+        - symbol
+      description: Get the operational recommendation trends for symbol
+      parameters:
+        - in: path
+          required: true
+          name: symbol
+          schema:
+            type: string
+            example: AAPL
+      responses:
+        200:
+          description: Recommendation trend
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/recommendation-trend"
+  /peers/{symbol}:
+    get:
+      tags:
+        - symbol
+      description: Get peers for the symbol specified
+      parameters:
+        - in: path
+          required: true
+          name: symbol
+          schema:
+            type: string
+            example: AAPL
+      responses:
+        200:
+          description: Peers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: ["AAPL", "AMD"]
+components:
+  schemas:
+    resolution:
+      type: string
+      enum: ["1", "60", "D", "M"]
+    db-resolution:
+      description: Mapped directly to the string resolution of above
+      type: number
+      enum: [0, 1, 2, 3]
+    candle:
+      type: object
+      properties:
+        symbol:
+          type: string
+          example: AAPL
+        timestamp:
+          type: string
+          example: "2009-11-10T23:00:00Z"
+        resolution:
+          $ref: "#/components/schemas/db-resolution"
+        open:
+          type: number
+          example: 10
+        high:
+          type: number
+          example: 10
+        low:
+          type: number
+          example: 10
+        close:
+          type: number
+          example: 10
+        prevClose:
+          type: number
+          example: 10
+        volume:
+          type: number
+          example: 10
+    recommendation-trend:
+      type: object
+      properties:
+        buy:
+          type: number
+          example: 10
+        strongBuy:
+          type: number
+          example: 10
+        hold:
+          type: number
+          example: 10
+        sell:
+          type: number
+          example: 10
+        strongSell:
+          type: number
+          example: 10

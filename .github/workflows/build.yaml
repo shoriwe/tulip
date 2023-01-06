@@ -26,8 +26,19 @@ jobs:
         env:
           FINNHUB: ${{ secrets.FINNHUB }}
 
-  versioning:
+  codecov:
     needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Test
+        run: go test -coverpkg ./... -coverprofile coverage.txt -covermode atomic ./...
+        env:
+          FINNHUB: ${{ secrets.FINNHUB }}
+      - uses: codecov/codecov-action@v3
+  
+  versioning:
+    needs: codecov
     runs-on:
       ubuntu-latest
       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/

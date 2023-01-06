@@ -1,6 +1,9 @@
 # tulip
 
 [![Build](https://github.com/shoriwe/tulip/actions/workflows/build.yaml/badge.svg)](https://github.com/shoriwe/tulip/actions/workflows/build.yaml)
+[![codecov](https://codecov.io/github/shoriwe/tulip/branch/main/graph/badge.svg?token=6XUX3TJC2N)](https://codecov.io/github/shoriwe/tulip)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/shoriwe/tulip)
+[![Go Report Card](https://goreportcard.com/badge/github.com/shoriwe/tulip)](https://goreportcard.com/report/github.com/shoriwe/tulip)
 
 <p align="center">
     <img style="width: 50%; height: auto;" src="logo.png"/>
@@ -16,7 +19,11 @@ To extend tulip you can write your own `Source` interface implementations, query
 
 ### Documentation
 
-Coming soon...
+| Documentation     | URL                                                          |
+| ----------------- | ------------------------------------------------------------ |
+| OpenAPI           | [docs/api.openapi.yaml](docs/api.openapi.yaml)               |
+| Library           | [https://pkg.go.dev/github.com/shoriwe/tulip](https://pkg.go.dev/github.com/shoriwe/tulip) |
+| JavaScript client | **Coming soon...**                                           |
 
 ### Clients
 
@@ -24,7 +31,7 @@ Coming soon...
 
 ## Binaries
 
-You will find pre-build binaries at the [release](https://github.com/shoriwe/tulip/releases) section. Is none of these binaries targets your platform use [Go command](#Go-command)
+You will find pre-build binaries at the [release](https://github.com/shoriwe/tulip/releases) section. If none of these binaries targets your platform use [Go command](#Go-command)
 
 ## Docker image
 
