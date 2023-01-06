@@ -59,7 +59,7 @@ jobs:
         name: Latest version
         run: node version.js >> $GITHUB_OUTPUT
 
-  github-release:
+  release-github:
     needs:
       - versioning
     runs-on: ubuntu-latest
@@ -112,7 +112,7 @@ jobs:
             bin/tulip.exe
           tag_name: v${{needs.versioning.outputs.version}}
 
-  docker-release:
+  release-docker:
     needs:
       - versioning
     runs-on: ubuntu-latest
