@@ -26,24 +26,6 @@ jobs:
         env:
           FINNHUB: ${{ secrets.FINNHUB }}
 
-  binaries:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Linux
-        run: go build -v -o bin/tulip
-        env:
-          GOOS: linux
-          GOARCH: amd64
-
-      - name: Windows
-        run: go build -v -o bin/tulip.exe
-        env:
-          GOOS: windows
-          GOARCH: amd64
-
   versioning:
     needs: build
     runs-on: ubuntu-latest
@@ -82,8 +64,26 @@ jobs:
       - versioning
     runs-on: ubuntu-latest
     steps:
+      - name: Linux binary
+        run: go build -v -o bin/tulip
+        env:
+          GOOS: linux
+          GOARCH: amd64
+
+      - name: Windows binary
+        run: go build -v -o bin/tulip.exe
+        env:
+          GOOS: windows
+          GOARCH: amd64
+
       - name: GitHub release
-        run: echo "v${{needs.versioning.outputs.version}}"
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            bin/tulip
+            bin/tulip.exe
+          tag_name: v${{needs.versioning.outputs.version}}
+        #run: echo "v${{needs.versioning.outputs.version}}"
 
       - name: Docker image
         run: echo "v${{needs.versioning.outputs.version}}"
