@@ -19,7 +19,11 @@ To extend tulip you can write your own `Source` interface implementations, query
 
 ### Documentation
 
-Coming soon...
+| Documentation     | URL                                                          |
+| ----------------- | ------------------------------------------------------------ |
+| OpenAPI           | [docs/api.openapi.yaml](docs/api.openapi.yaml)               |
+| Library           | [https://pkg.go.dev/github.com/shoriwe/tulip](https://pkg.go.dev/github.com/shoriwe/tulip) |
+| JavaScript client | **Coming soon...**                                           |
 
 ### Clients
 
@@ -27,7 +31,7 @@ Coming soon...
 
 ## Binaries
 
-You will find pre-build binaries at the [release](https://github.com/shoriwe/tulip/releases) section. Is none of these binaries targets your platform use [Go command](#Go-command)
+You will find pre-build binaries at the [release](https://github.com/shoriwe/tulip/releases) section. If none of these binaries targets your platform use [Go command](#Go-command)
 
 ## Docker image
 
