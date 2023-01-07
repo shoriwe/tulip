@@ -7,6 +7,4 @@
 	let depth: number = parseInt(depthString);
 </script>
 
-<div style="width: 100%; height: 100%;">
-	<Peers bind:symbol bind:depth />
-</div>
+<Peers bind:symbol bind:depth />
