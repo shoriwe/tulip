@@ -99,10 +99,16 @@ func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) ([]*C
 		return nil, fmt.Errorf("unknown resolution: %d", res)
 	}
 	var candles []*Candle
-	fErr := s.db.Order("timestamp ASC").Find(&candles).Where(
-		"symbol = ? AND resolution = ? AND ? <= timestamp AND timestamp <= ?",
+	fErr := s.db.Raw(
+		"SELECT symbol, timestamp, resolution, open, high, low, close, prev_close, volume FROM candles WHERE symbol = ? AND resolution = ? AND ? <= timestamp AND timestamp <= ? ORDER BY timestamp ASC",
 		symbol, res, from, to,
-	).Error
+	).Scan(&candles).Error
+	/*
+		fErr := s.db.Find(&candles).Where(
+			"symbol = ? AND resolution = ? AND ? <= timestamp AND timestamp <= ?",
+			symbol, res, from, to,
+		).Order("timestamp ASC").Error
+	*/
 	if fErr != nil {
 		return nil, fErr
 	}
