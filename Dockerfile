@@ -1,8 +1,9 @@
 FROM golang:1.19-alpine AS build-stage
 
-RUN apk add upx
+RUN apk add upx nodejs npm
 WORKDIR /tulip-src
 COPY . .
+RUN go generate ./...
 RUN go build -o /tulip
 RUN upx /tulip
 
