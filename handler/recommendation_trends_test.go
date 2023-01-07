@@ -11,7 +11,7 @@ import (
 func TestHandler_RecommendationTrends(t *testing.T) {
 	server, expect := NewTestHandler(t)
 	defer server.Close()
-	trendObject := expect.GET(RecommendationTrendsRoute + "AAPL").
+	trendObject := expect.GET(APIRoute + RecommendationTrendsRoute + "AAPL").
 		Expect().
 		Status(http.StatusOK).
 		JSON().

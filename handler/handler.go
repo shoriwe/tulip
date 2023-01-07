@@ -14,16 +14,19 @@ type Handler struct {
 }
 
 func NewHandler(store *store.Store) *echo.Echo {
-	api := &Handler{
+	h := &Handler{
 		store: store,
 	}
 	e := echo.New()
-	// Routes
-	e.GET(QuoteRouteWithParams, api.Quote)
-	e.GET(CandlesRouteWithParams, api.Candles)
-	e.GET(RecommendationTrendsRouteWithParams, api.RecommendationTrends)
-	e.GET(PeersRouteWithParams, api.Peers)
-	//
+	// API
+	api := e.Group(APIRoute)
+	api.GET(QuoteRouteWithParams, h.Quote)
+	api.GET(CandlesRouteWithParams, h.Candles)
+	api.GET(RecommendationTrendsRouteWithParams, h.RecommendationTrends)
+	api.GET(PeersRouteWithParams, h.Peers)
+	// Components
+	components := e.Group(ComponentsRoute)
+	components.GET(CandlesComponentRoute, h.CandlesSVG)
 	return e
 }
 
