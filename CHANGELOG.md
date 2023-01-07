@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.36 (2023-01-07)
+
+
+### Bug Fixes
+
+* added go generate to unit tests ([9eb1238](https://github.com/shoriwe/tulip/commit/9eb1238eb5eb88ed4af0e8fde79f7b3e55f78f98))
+
 ### 0.6.35 (2023-01-06)
 
 
