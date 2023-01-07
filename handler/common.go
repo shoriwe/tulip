@@ -9,7 +9,6 @@ const (
 	ResolutionParam = "res"
 	FromParam       = "from"
 	ToParam         = "to"
-	LastParam       = "last"
 )
 
 const (
@@ -44,8 +43,4 @@ var Resolutions = map[string]store.Resolution{
 const (
 	ComponentsRoute = "/components"
 	APIRoute        = "/api"
-)
-
-const (
-	CandlesComponentRoute = "/candles"
 )
