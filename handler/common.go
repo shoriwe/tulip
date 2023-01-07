@@ -1,12 +1,15 @@
 package handler
 
-import "github.com/shoriwe/tulip/store"
+import (
+	"github.com/shoriwe/tulip/store"
+)
 
 const (
 	SymbolParam     = "symbol"
 	ResolutionParam = "res"
 	FromParam       = "from"
 	ToParam         = "to"
+	LastParam       = "last"
 )
 
 const (
@@ -37,3 +40,12 @@ var Resolutions = map[string]store.Resolution{
 	Day:    store.Day,
 	Month:  store.Month,
 }
+
+const (
+	ComponentsRoute = "/components"
+	APIRoute        = "/api"
+)
+
+const (
+	CandlesComponentRoute = "/candles"
+)

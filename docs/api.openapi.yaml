@@ -14,7 +14,7 @@ tags:
   - name: symbol
     description: Query information about specific symbols
 paths:
-  /quote/{symbol}:
+  /api/quote/{symbol}:
     get:
       tags:
         - symbol
@@ -33,7 +33,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/candle"
-  /candles/{symbol}/{resolution}/{from}/{to}:
+  /api/candles/{symbol}/{resolution}/{from}/{to}:
     get:
       tags:
         - symbol
@@ -73,7 +73,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/candle"
-  /recommendation/trends/{symbol}:
+  /api/recommendation/trends/{symbol}:
     get:
       tags:
         - symbol
@@ -92,7 +92,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/recommendation-trend"
-  /peers/{symbol}:
+  /api/peers/{symbol}:
     get:
       tags:
         - symbol

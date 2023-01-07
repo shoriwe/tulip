@@ -15,7 +15,7 @@ func TestHandler_Candles(t *testing.T) {
 	defer server.Close()
 	now := time.Now()
 	route := fmt.Sprintf("%s%s/%s/%s/%s",
-		CandlesRoute, "AAPL",
+		APIRoute+CandlesRoute, "AAPL",
 		Month,
 		strconv.FormatInt(now.Add(-1000*24*time.Hour).UnixMilli(), 10),
 		strconv.FormatInt(now.UnixMilli(), 10),

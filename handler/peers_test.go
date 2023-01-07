@@ -8,7 +8,7 @@ import (
 func TestHandler_Peers(t *testing.T) {
 	server, expect := NewTestHandler(t)
 	defer server.Close()
-	expect.GET(PeersRoute + "AAPL").
+	expect.GET(APIRoute + PeersRoute + "AAPL").
 		Expect().
 		Status(http.StatusOK).
 		JSON().
