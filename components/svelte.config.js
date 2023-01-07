@@ -8,6 +8,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		paths: {
+			base: '/components'
+		},
 		adapter: adapter({
 
 			// default options are shown. On some platforms
