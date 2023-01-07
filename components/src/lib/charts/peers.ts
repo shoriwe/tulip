@@ -30,7 +30,7 @@ async function mapPeers(symbol: string, depth: number, result: peersResult = {})
     return result;
 }
 
-export async function generatePeersGraph(target: string, depth: number): Promise<any> {
+export async function peersOptions(target: string, depth: number): Promise<any> {
     const p: peersResult = await mapPeers(target, depth);
     const graph: any = {
         nodes: [],

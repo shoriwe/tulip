@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { generatePeersGraph } from '$lib/charts/peers';
+	import { peersOptions } from '$lib/charts/peers';
 	import { onMount } from 'svelte';
 	import Chart from './chart.svelte';
 
@@ -9,7 +9,7 @@
 	let option: any;
 
 	onMount(async function () {
-		option = await generatePeersGraph(symbol, depth);
+		option = await peersOptions(symbol, depth);
 	});
 </script>
 
