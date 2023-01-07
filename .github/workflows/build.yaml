@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Test
-        run: go test -coverpkg ./... -coverprofile coverage.txt -covermode atomic ./...
+        run: go generate ./... && go test -coverpkg ./... -coverprofile coverage.txt -covermode atomic ./...
         env:
           FINNHUB: ${{ secrets.FINNHUB }}
       - uses: codecov/codecov-action@v3
