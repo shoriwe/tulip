@@ -25,8 +25,7 @@ func NewHandler(store *store.Store) *echo.Echo {
 	api.GET(RecommendationTrendsRouteWithParams, h.RecommendationTrends)
 	api.GET(PeersRouteWithParams, h.Peers)
 	// Components
-	components := e.Group(ComponentsRoute)
-	components.GET(CandlesComponentRoute, h.CandlesSVG)
+	// components := e.Group(ComponentsRoute)
 	return e
 }
 
