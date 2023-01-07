@@ -1,3 +1,5 @@
+//go:build !no-components
+
 package components
 
 import (
