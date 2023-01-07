@@ -1,10 +1,28 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import Peers from '$lib/components/peers.svelte';
+	import { onMount } from 'svelte';
 
-	let symbol: string = $page.url.searchParams.get('symbol') || 'AAPL';
-	const depthString: string = $page.url.searchParams.get('depth') || '100';
-	let depth: number = parseInt(depthString);
+	let symbol: string;
+	let depth: number;
+
+	let loaded: boolean = false;
+
+	onMount(async () => {
+		if (window && window.location && window.location.search) {
+			const params: URLSearchParams = new Proxy(new URLSearchParams(window.location.search), {
+				get: (searchParams, prop) => searchParams.get(prop)
+			});
+			symbol = params.symbol || 'AAPL';
+			const depthString: string = params.depth || '100';
+			depth = parseInt(depthString);
+
+			loaded = true;
+		}
+	});
 </script>
 
-<Peers bind:symbol bind:depth />
+{#key loaded}
+	{#if loaded}
+		<Peers bind:symbol bind:depth />
+	{/if}
+{/key}
