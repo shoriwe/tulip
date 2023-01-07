@@ -6,6 +6,7 @@ import (
 
 	"github.com/gavv/httpexpect/v2"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/shoriwe/tulip/store"
 )
 
@@ -18,6 +19,7 @@ func NewHandler(store *store.Store) *echo.Echo {
 		store: store,
 	}
 	e := echo.New()
+	e.Use(middleware.CORS())
 	// API
 	api := e.Group(APIRoute)
 	api.GET(QuoteRouteWithParams, h.Quote)
