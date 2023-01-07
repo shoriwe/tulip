@@ -63,6 +63,12 @@ jobs:
       - name: Changelog
         run: 'npx standard-version --message "[ci skip] chore(release): %s"'
 
+      - name: Generate
+        run: go generate ./...
+
+      - name: Commit generated files
+        run: git add . && git commit -m "[ci skip] generated components"
+
       - name: Push changes
         run: git push --follow-tags origin main
 
