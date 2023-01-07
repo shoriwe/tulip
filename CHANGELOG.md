@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.38 (2023-01-07)
+
+
+### Bug Fixes
+
+* added git add for always push the latest generated components ([8777179](https://github.com/shoriwe/tulip/commit/8777179a2d5f08fe30607bf84f30782d8a4178aa))
+
 ### 0.6.37 (2023-01-07)
 
 ### 0.6.36 (2023-01-07)
