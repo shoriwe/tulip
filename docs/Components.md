@@ -31,6 +31,8 @@
 
 | Query param  | Value type        | Description                                                  |
 | ------------ | ----------------- | ------------------------------------------------------------ |
+| `upColor`    | string            | Color for Bullish candles; Hex color like: `#FF0000`; Color word like: `red` |
+| `downColor`  | string            | Color for Bearish candles; Hex color like: `#FF0000`; Color word like: `red` |
 | `symbol`     | string            | Stock/Crypto... symbol to be query                           |
 | `resolution` | string            | One of: `1`, `60`, `D`, `M`                                  |
 | `last`       | number            | Query the last N candles until today (cannot be used with `from` and `last`) |
@@ -40,11 +42,11 @@
 - Example embed:
 
 ```html
-<iframe style="width: 100%; height: 800px;" src="http://YOUR-SERVER:PORT/components/candles.html?symbol=AAPL&resolution=D&last=31"/>
+<iframe style="width: 100%; height: 800px;" src="http://YOUR-SERVER:PORT/components/candles.html?symbol=AAPL&resolution=M&last=12"/>
 ```
 
 <p align="center">
-    <img alt="peers" src="assets/image-20230107194226135.png"/>
+    <img alt="peers" src="assets/image-20230107210247207.png"/>
 </p>
 
 ## Recommendation trends
