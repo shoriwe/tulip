@@ -2,6 +2,8 @@
 	import Candles from '$lib/components/candles.svelte';
 	import { onMount } from 'svelte';
 
+	let upColor: string;
+	let downColor: string;
 	let symbol: string;
 	let resolution: string;
 	let last: number;
@@ -15,6 +17,8 @@
 			const params: URLSearchParams = new Proxy(new URLSearchParams(window.location.search), {
 				get: (searchParams, prop) => searchParams.get(prop)
 			});
+			upColor = params.upColor || 'green';
+			downColor = params.downColor || 'red';
 			symbol = params.symbol || 'AAPL';
 			resolution = params.resolution || 'D';
 			const lastString: string = params.last || '0';
@@ -31,6 +35,6 @@
 
 {#key loaded}
 	{#if loaded}
-		<Candles bind:symbol bind:resolution bind:last bind:from bind:to />
+		<Candles bind:upColor bind:downColor bind:symbol bind:resolution bind:last bind:from bind:to />
 	{/if}
 {/key}

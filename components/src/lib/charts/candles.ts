@@ -1,24 +1,4 @@
 import { candles, type Candle } from "$lib/api/client";
-import * as echarts from 'echarts';
-
-function getSign(data: number[][], dataIndex: number, openVal: number, closeVal: number, closeDimIdx: number): number {
-    var sign;
-    if (openVal > closeVal) {
-        sign = -1;
-    } else if (openVal < closeVal) {
-        sign = 1;
-    } else {
-        sign =
-            dataIndex > 0
-                ? // If close === open, compare with close of last record
-                data[dataIndex - 1][closeDimIdx] <= closeVal
-                    ? 1
-                    : -1
-                : // No record of previous, set to be positive
-                1;
-    }
-    return sign;
-}
 
 function transformCandles(c: Candle[]): number[][] {
     if (!c) {
@@ -35,18 +15,17 @@ function transformCandles(c: Candle[]): number[][] {
                 candle.low,
                 candle.high,
                 candle.volume,
-                getSign(data, index, candle.open, candle.close, 4) // sign
+                candle.open <= candle.close ? 1 : -1
             ]
         );
     }
     return data;
 }
 
-export async function candlesOptions(symbol: string, resolution: string, last: number, from: number, to: number): Promise<any> {
-    const upColor = '#ec0000';
-    const upBorderColor = '#8A0000';
-    const downColor = '#00da3c';
-    const downBorderColor = '#008F28';
+export async function candlesOptions(
+    upColor: string, downColor: string,
+    symbol: string, resolution: string, last: number, from: number, to: number
+): Promise<any> {
     if (last !== 0) {
         from = to = Date.now();
         switch (resolution) {
@@ -193,16 +172,16 @@ export async function candlesOptions(symbol: string, resolution: string, last: n
                 itemStyle: {
                     color: upColor,
                     color0: downColor,
-                    borderColor: upBorderColor,
-                    borderColor0: downBorderColor
+                    borderColor: upColor,
+                    borderColor0: downColor
                 },
                 encode: {
                     x: 0,
-                    y: [1, 4, 3, 2]
+                    y: [1, 2, 3, 4]
                 }
             },
             {
-                name: 'Volumn',
+                name: 'Volume',
                 type: 'bar',
                 xAxisIndex: 1,
                 yAxisIndex: 1,
