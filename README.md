@@ -66,4 +66,7 @@ docker build -t tulip .
 
 ## Coverage
 
-![coverage](https://codecov.io/gh/shoriwe/tulip/branch/main/graphs/sunburst.svg?token=3XP6AV109Z)
+<p align="center">
+    <img alt="coverage-graph" src="https://codecov.io/gh/shoriwe/tulip/branch/main/graphs/sunburst.svg?token=3XP6AV109Z"/>
+</p>
+
