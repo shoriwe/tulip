@@ -52,12 +52,16 @@ export async function candlesOptions(symbol: string, resolution: string, last: n
         switch (resolution) {
             case '1':
                 from -= last * 60000
+                break;
             case '60':
                 from -= last * 3600000
+                break;
             case 'D':
                 from -= last * 86400000
+                break;
             case 'M':
                 from -= last * 2678400000
+                break;
             default:
                 break;
         }
