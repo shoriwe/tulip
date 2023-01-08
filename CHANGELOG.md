@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.40 (2023-01-08)
+
+
+### Bug Fixes
+
+* added breaks in resolution multipliers switch ([a1f138e](https://github.com/shoriwe/tulip/commit/a1f138ebd9ec37274aef0a74db7b0b03d0efe35d))
+
 ### 0.6.39 (2023-01-08)
 
 ### 0.6.38 (2023-01-07)
