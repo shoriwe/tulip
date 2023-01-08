@@ -21,6 +21,7 @@ To extend tulip you can write your own `Source` interface implementations, query
 
 | Documentation     | URL                                                          |
 | ----------------- | ------------------------------------------------------------ |
+| Components        | [docs/Components.md](docs/Components.md)                     |
 | OpenAPI           | [docs/api.openapi.yaml](docs/api.openapi.yaml)               |
 | Library           | [https://pkg.go.dev/github.com/shoriwe/tulip](https://pkg.go.dev/github.com/shoriwe/tulip) |
 | JavaScript client | **Coming soon...**                                           |
