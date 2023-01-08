@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.41 (2023-01-08)
+
+
+### Features
+
+* added support for the latest components tooling ([36aa68d](https://github.com/shoriwe/tulip/commit/36aa68df853a4c048987f1cbb6c30e49b83a1dce))
+
 ### 0.6.40 (2023-01-08)
 
 
