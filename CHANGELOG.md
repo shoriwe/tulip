@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.43 (2023-01-09)
+
+
+### Features
+
+* Candlestick, Recommendation trend and peers HTML components ([#20](https://github.com/shoriwe/tulip/issues/20)) ([5a75fb9](https://github.com/shoriwe/tulip/commit/5a75fb956676b684c9761be4863206242a88d0a3))
+
 ### 0.6.42 (2023-01-09)
 
 ### 0.6.41 (2023-01-08)
