@@ -8,8 +8,13 @@
 <p align="center">
     <img style="width: 50%; height: auto;" src="logo.png"/>
 </p>
-
 Extensible market data REST API, made with the intention to interact with multiple market data sources but using the same interface for all.
+
+## Components preview
+
+| ![recommendation-trends](docs/assets/image-20230109133611842.png) | ![Peers](docs/assets/image-20230107193602052.png) |
+| ------------------------------------------------------------ | ------------------------------------------------- |
+| ![Candles](docs/assets/image-20230107210247207.png)          |                                                   |
 
 ## Extending tulip
 
@@ -69,4 +74,3 @@ docker build -t tulip .
 <p align="center">
     <img alt="coverage-graph" src="https://codecov.io/gh/shoriwe/tulip/branch/main/graphs/sunburst.svg?token=3XP6AV109Z"/>
 </p>
-
