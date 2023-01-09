@@ -37,4 +37,6 @@ var combinedCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(combinedCmd)
+	finnhubToken = combinedCmd.Flags().StringP("finnhub", "f", "", "Sets Finnhub API Key. Adds to Finnhub Source to the pipe")
+	useYahoo = combinedCmd.Flags().BoolP("yahoo", "y", false, "Adds to Yahoo finance Source to the pipe")
 }
