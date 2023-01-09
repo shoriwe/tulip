@@ -64,7 +64,7 @@ jobs:
         run: go generate ./...
 
       - name: Commit generated files
-        run: git add . && git commit -m "[ci skip] generated components"
+        run: 'git add . && git commit -m "[ci skip] feat: generated components"'
       
       - name: Changelog
         run: 'npx standard-version --message "[ci skip] chore(release): %s"'
