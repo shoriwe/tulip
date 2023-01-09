@@ -26,7 +26,7 @@
 			const fromString: string = params.from || '1667278800000';
 			from = parseInt(fromString);
 			const toString: string = params.to || '1673121379603';
-			from = parseInt(toString);
+			to = parseInt(toString);
 
 			loaded = true;
 		}
