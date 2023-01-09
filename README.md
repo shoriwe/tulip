@@ -10,6 +10,12 @@
 </p>
 Extensible market data REST API, made with the intention to interact with multiple market data sources but using the same interface for all.
 
+## Running with Yahoo finance as data source
+
+```shell
+tulip yahoo
+```
+
 ## Components preview
 
 | ![recommendation-trends](docs/assets/image-20230109133611842.png) | ![Peers](docs/assets/image-20230107193602052.png) |
@@ -20,18 +26,17 @@ Extensible market data REST API, made with the intention to interact with multip
 
 To extend tulip you can write your own `Source` interface implementations, querying for the necessary data sources you need, such as Yahoo finance API...
 
-## REST API
-
-### Documentation
+## Documentation
 
 | Documentation     | URL                                                          |
 | ----------------- | ------------------------------------------------------------ |
 | Components        | [docs/Components.md](docs/Components.md)                     |
 | OpenAPI           | [docs/api.openapi.yaml](docs/api.openapi.yaml)               |
 | Library           | [https://pkg.go.dev/github.com/shoriwe/tulip](https://pkg.go.dev/github.com/shoriwe/tulip) |
+| CLI               | [docs/CLI.md](docs/CLI.md)                                   |
 | JavaScript client | **Coming soon...**                                           |
 
-### API Clients
+## REST API Clients
 
 Coming soon...
 
