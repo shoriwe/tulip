@@ -51,4 +51,19 @@
 
 ## Recommendation trends
 
-Coming soon...
+- Route: `/components/recommendation-trends.html`
+- Arguments:
+
+| Query param | Value type | Description                        |
+| ----------- | ---------- | ---------------------------------- |
+| `symbol`    | string     | Stock/Crypto... symbol to be query |
+
+- Example embed:
+
+```html
+<iframe style="width: 100%; height: 800px;" src="http://YOUR-SERVER:PORT/components/recommendation-trends.html?symbol=AAPL"/>
+```
+
+<p align="center">
+    <img alt="recommendationTrends" src="assets/image-20230109133611842.png"/>
+</p>

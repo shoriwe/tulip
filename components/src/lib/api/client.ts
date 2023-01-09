@@ -12,6 +12,14 @@ export interface Candle {
     volume: number
 }
 
+export interface RecommendationTrends {
+    buy: number
+    strongBuy: number
+    sell: number
+    strongSell: number
+    hold: number
+}
+
 export async function quote(symbol: string): Promise<Candle> {
     const response: Response = await fetch(`${baseUrl}/api/quote/${symbol}`);
     const candle: Candle = await response.json()
@@ -28,4 +36,10 @@ export async function peers(symbol: string): Promise<string[]> {
     const response: Response = await fetch(`${baseUrl}/api/peers/${symbol}`);
     const peers: string[] = await response.json()
     return peers;
+}
+
+export async function recommendationTrends(symbol: string): Promise<RecommendationTrends> {
+    const response: Response = await fetch(`${baseUrl}/api/recommendation/trends/${symbol}`);
+    const trend: RecommendationTrends = await response.json()
+    return trend;
 }
