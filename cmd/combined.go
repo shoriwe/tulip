@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var useYahoo *bool
+
 var combinedCmd = &cobra.Command{
 	Use:   "combined",
 	Short: "Combined source pipe",
