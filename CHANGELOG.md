@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/shoriwe/tulip/compare/v0.6.48...v0.7.0) (2023-01-10)
+
+
+### Features
+
+* compiled svelte compontents ([6a65314](https://github.com/shoriwe/tulip/commit/6a65314f75677d2d48b789ffa0b12a2f79aa2353))
+* notes api ([b6388bf](https://github.com/shoriwe/tulip/commit/b6388bfea1ef4b3693775f60a082b31ccfcd82cd))
+* text editor made ([0f1efbf](https://github.com/shoriwe/tulip/commit/0f1efbf38feef877c032c20ab91c13b20e970b1e))
+
+
+### Bug Fixes
+
+* added go embed directory ([a579296](https://github.com/shoriwe/tulip/commit/a5792969f83fa9641b548fcad6eef72766f48d86))
+* unique tests ([109b10e](https://github.com/shoriwe/tulip/commit/109b10e9c44ef105cda72ced6021628cdfdc53e9))
+
 ### 0.6.48 (2023-01-10)
 
 
