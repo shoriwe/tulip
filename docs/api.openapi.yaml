@@ -13,6 +13,8 @@ info:
 tags:
   - name: symbol
     description: Query information about specific symbols
+  - name: notes
+    description: CRUD operations over the user Notes
 paths:
   /api/quote/{symbol}:
     get:
@@ -114,6 +116,85 @@ paths:
                 items:
                   type: string
                 example: ["AAPL", "AMD"]
+  /api/notes:
+    get:
+      tags:
+        - notes
+      description: List all notes in the database
+      responses:
+        200:
+          description: List of notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/note"
+    put:
+      tags:
+        - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/note"
+      description: Returns a note object
+      responses:
+        200:
+          description: Note created successfully
+  /api/notes/{name}:
+    get:
+      tags:
+        - notes
+      parameters:
+        - in: path
+          required: true
+          name: name
+          schema:
+            type: string
+            example: My note
+      description: Returns a note object
+      responses:
+        200:
+          description: List of notes
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/note"
+    patch:
+      tags:
+        - notes
+      parameters:
+        - in: path
+          required: true
+          name: name
+          schema:
+            type: string
+            example: My note
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/note"
+      description: Updates a note, notice that the name in the note object is not required
+      responses:
+        200:
+          description: Note updated successfully
+    delete:
+      tags:
+        - notes
+      parameters:
+        - in: path
+          required: true
+          name: name
+          schema:
+            type: string
+            example: My note
+      description: Deletes a note based on its name
+      responses:
+        200:
+          description: Note deleted successfully
+
 components:
   schemas:
     resolution:
@@ -170,3 +251,10 @@ components:
         strongSell:
           type: number
           example: 10
+    note:
+      type: object
+      properties:
+        name:
+          type: string
+        content:
+          type: string

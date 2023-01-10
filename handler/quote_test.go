@@ -6,8 +6,8 @@ import (
 )
 
 func TestHandler_Quote(t *testing.T) {
-	server, expect := NewTestHandler(t)
-	defer server.Close()
+	close, expect := NewTestHandler(t)
+	defer close()
 	candleObject := expect.GET(APIRoute + QuoteRoute + "AAPL").
 		Expect().
 		Status(http.StatusOK).

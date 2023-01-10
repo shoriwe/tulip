@@ -9,6 +9,7 @@ const (
 	ResolutionParam = "res"
 	FromParam       = "from"
 	ToParam         = "to"
+	NameParam       = "name"
 )
 
 const (
@@ -24,6 +25,8 @@ const (
 	RecommendationTrendsRouteWithParams = RecommendationTrendsRoute + ":" + SymbolParam
 	PeersRoute                          = "/peers/"
 	PeersRouteWithParams                = PeersRoute + ":" + SymbolParam
+	NotesRoute                          = "/notes"
+	NotesRouteWithParams                = NotesRoute + "/:" + NameParam
 )
 
 const (

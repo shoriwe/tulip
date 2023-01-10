@@ -29,6 +29,11 @@ func NewHandler(store *store.Store) *echo.Echo {
 	api.GET(CandlesRouteWithParams, h.Candles)
 	api.GET(RecommendationTrendsRouteWithParams, h.RecommendationTrends)
 	api.GET(PeersRouteWithParams, h.Peers)
+	api.PUT(NotesRoute, h.CreateNote)
+	api.GET(NotesRoute, h.ListNotes)
+	api.GET(NotesRouteWithParams, h.GetNote)
+	api.PATCH(NotesRouteWithParams, h.UpdateNote)
+	api.DELETE(NotesRouteWithParams, h.DeleteNote)
 	// Components
 	c := e.Group(ComponentsRoute)
 	fsys, err := fs.Sub(components.Components, "build")
@@ -39,9 +44,10 @@ func NewHandler(store *store.Store) *echo.Echo {
 	return e
 }
 
-func NewTestHandler(t *testing.T) (*httptest.Server, *httpexpect.Expect) {
-	a := NewHandler(store.NewTestStore())
+func NewTestHandler(t *testing.T) (func(), *httpexpect.Expect) {
+	s := store.NewTestStore()
+	a := NewHandler(s)
 	server := httptest.NewServer(a)
 	expect := httpexpect.Default(t, server.URL)
-	return server, expect
+	return func() { s.Close(); server.Close() }, expect
 }

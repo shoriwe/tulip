@@ -11,8 +11,8 @@ import (
 )
 
 func TestHandler_Candles(t *testing.T) {
-	server, expect := NewTestHandler(t)
-	defer server.Close()
+	close, expect := NewTestHandler(t)
+	defer close()
 	now := time.Now()
 	route := fmt.Sprintf("%s%s/%s/%s/%s",
 		APIRoute+CandlesRoute, "AAPL",

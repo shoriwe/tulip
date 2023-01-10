@@ -42,7 +42,7 @@ type (
 )
 
 func NewStore(db *gorm.DB, cache *cache.Cache[[]byte], source Source) *Store {
-	db.AutoMigrate(&Candle{})
+	db.AutoMigrate(&Candle{}, &Note{})
 	return &Store{
 		db:     db,
 		cache:  cache,

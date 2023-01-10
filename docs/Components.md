@@ -90,3 +90,12 @@
 <p align="center">
     <img alt="recommendationTrends" src="assets/image-20230109203313081.png"/>
 </p>
+
+## Editor
+
+- Route: `/components/editor.html`
+- Arguments:
+
+| Query param | Value type | Description                    |
+| ----------- | ---------- | ------------------------------ |
+| `name`      | string     | File name to be Opened/Created |

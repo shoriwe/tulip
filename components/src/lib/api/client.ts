@@ -43,3 +43,59 @@ export async function recommendationTrends(symbol: string): Promise<Recommendati
     const trend: RecommendationTrends = await response.json()
     return trend;
 }
+
+export interface Note {
+    name: string
+    content: string
+}
+
+export async function createNote(name: string): Promise<void> {
+    const response: Response = await fetch(`${baseUrl}/api/notes`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name, content: '' })
+    });
+}
+
+export async function getNote(name: string): Promise<Note> {
+    name = encodeURI(name);
+    const response: Response = await fetch(`${baseUrl}/api/notes/${name}`);
+    if (response.status !== 200) throw "note doesn't exists"
+    const note: Note = await response.json();
+    return note;
+}
+
+export async function noteExists(name: string): Promise<boolean> {
+    try {
+        await getNote(name);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+export async function updateNote(name: string, content: string): Promise<void> {
+    name = encodeURI(name);
+    const response: Response = await fetch(`${baseUrl}/api/notes/${name}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content })
+    });
+}
+
+export async function listNotes(): Promise<Note[]> {
+    const response: Response = await fetch(`${baseUrl}/api/notes`);
+    const notes: Note[] = await response.json();
+    return notes;
+}
+
+export async function deleteNote(name: string): Promise<void> {
+    name = encodeURI(name);
+    const response: Response = await fetch(`${baseUrl}/api/notes/${name}`, {
+        method: 'DELETE',
+    });
+}
