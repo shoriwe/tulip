@@ -50,8 +50,12 @@ func NewStore(db *gorm.DB, cache *cache.Cache[[]byte], source Source) *Store {
 	}
 }
 
+var testDBId int = 0
+
 func NewTestStore() *Store {
-	return NewStore(common.NewSQLite("file::memory:?cache=shared"), common.NewBigCache(), NewFinnhub(os.Getenv("FINNHUB")))
+	s := NewStore(common.NewSQLite(fmt.Sprintf("file:test%d?mode=memory&cache=shared", testDBId)), common.NewBigCache(), NewFinnhub(os.Getenv("FINNHUB")))
+	testDBId++
+	return s
 }
 
 func (s *Store) Close() {
