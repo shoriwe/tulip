@@ -1,8 +1,7 @@
 import { candles, quote, type Candle } from "$lib/api/client"
 import { calcLast } from "./timestamp";
 import * as echarts from 'echarts';
-
-function change(first: number, last: number): number { return (last - first) / last }
+import { percentageChange } from "./data";
 
 async function heatmapOptionFromTo(symbols: string[], resolution: string, from: number, to: number): Promise<{ [name: string]: number }> {
     let changes: { [name: string]: number } = {};
@@ -11,7 +10,7 @@ async function heatmapOptionFromTo(symbols: string[], resolution: string, from: 
         const c: Candle[] = await candles(symbol, resolution, from, to);
         const first: number = c[0].close;
         const last: number = c[c.length - 1].close;
-        changes[symbol] = change(first, last);
+        changes[symbol] = percentageChange(first, last);
     }
     return changes;
 }
