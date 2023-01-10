@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.7.1 (2023-01-10)
+
+
+### Bug Fixes
+
+* fixed test bug where sqlite database was not newly created ([ddc6290](https://github.com/shoriwe/tulip/commit/ddc6290d2c42fd105830de882d595119db4a09b4))
+
 ## [0.7.0](https://github.com/shoriwe/tulip/compare/v0.6.48...v0.7.0) (2023-01-10)
 
 
