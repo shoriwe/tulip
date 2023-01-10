@@ -70,7 +70,7 @@ jobs:
         run: 'npx standard-version --message "[ci skip] chore(release): %s"'
 
       - name: Push changes
-        run: git push --follow-tags origin main
+        run: git push --follow-tags --force origin main
 
       - id: latest_version
         name: Latest version
