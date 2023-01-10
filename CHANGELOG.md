@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.45 (2023-01-10)
+
+
+### Bug Fixes
+
+* git push origin force ([#25](https://github.com/shoriwe/tulip/issues/25)) ([df3dd7b](https://github.com/shoriwe/tulip/commit/df3dd7b0c9575b655ef855790a37d818e801f719))
+
 ### [0.6.44](https://github.com/shoriwe/tulip/compare/v0.6.43...v0.6.44) (2023-01-10)
 
 
