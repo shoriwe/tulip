@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.47 (2023-01-10)
+
+
+### Bug Fixes
+
+* fixed bug where last time in candles was wrongly calculated ([b3880a9](https://github.com/shoriwe/tulip/commit/b3880a90f6e2368c6149b03b771a4a03125e849f))
+
 ### 0.6.46 (2023-01-10)
 
 
