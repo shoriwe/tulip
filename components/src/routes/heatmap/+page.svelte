@@ -1,14 +1,12 @@
 <script lang="ts">
-	import Candles from '$lib/components/candles.svelte';
+	import HeatMap from '$lib/components/heatmap.svelte';
 	import { onMount } from 'svelte';
 
-	let upColor: string;
-	let downColor: string;
-	let symbol: string;
-	let resolution: string;
-	let last: number;
-	let from: number;
-	let to: number;
+	let symbols: string[];
+    let resolution: string;
+    let last: number;
+    let from: number;
+    let to: number;
 
 	let loaded: boolean = false;
 
@@ -17,11 +15,9 @@
 			const params: any = new Proxy(new URLSearchParams(window.location.search), {
 				get: (searchParams: any, prop: any) => searchParams.get(prop)
 			});
-			upColor = params.upColor || 'green';
-			downColor = params.downColor || 'red';
-			symbol = params.symbol || 'AAPL';
-			resolution = params.resolution || 'D';
-			const lastString: string = params.last || '0';
+			symbols = (params.symbols || 'AAPL').split(',');
+            resolution = params.resolution || 'D';
+            const lastString: string = params.last || '0';
 			last = parseInt(lastString);
 			const fromString: string = params.from || '1667278800000';
 			from = parseInt(fromString);
@@ -33,8 +29,9 @@
 	});
 </script>
 
+
 {#key loaded}
 	{#if loaded}
-		<Candles bind:upColor bind:downColor bind:symbol bind:resolution bind:last bind:from bind:to />
+		<HeatMap bind:symbols bind:resolution bind:last bind:from bind:to/>
 	{/if}
 {/key}

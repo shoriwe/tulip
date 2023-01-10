@@ -67,3 +67,26 @@
 <p align="center">
     <img alt="recommendationTrends" src="assets/image-20230109133611842.png"/>
 </p>
+
+## Heatmap
+
+- Route: `/components/heatmap.html`
+- Arguments:
+
+| Query param  | Value type        | Description                                                  |
+| ------------ | ----------------- | ------------------------------------------------------------ |
+| `symbols`    | string            | Comma separated Stock/Crypto... symbols to be query          |
+| `resolution` | string            | One of: `1`, `60`, `D`, `M`                                  |
+| `last`       | number            | Query the last N candles until today (cannot be used with `from` and `last`) |
+| `from`       | UNIX milliseconds | Starting timestamp in UNIX milliseconds                      |
+| `to`         | UNIX milliseconds | End timestamp in UNIX milliseconds                           |
+
+- Example embed:
+
+```html
+<iframe style="width: 100%; height: 800px;" src="http://YOUR-SERVER:PORT/components/heatmap.html?symbols=AAPL,NET,NVDA,JPM,JNJ,COST&last=6&resolution=M"/>
+```
+
+<p align="center">
+    <img alt="recommendationTrends" src="assets/image-20230109203313081.png"/>
+</p>

@@ -18,9 +18,9 @@ tulip yahoo
 
 ## Components preview
 
-| ![recommendation-trends](docs/assets/image-20230109133611842.png) | ![Peers](docs/assets/image-20230107193602052.png) |
-| ------------------------------------------------------------ | ------------------------------------------------- |
-| ![Candles](docs/assets/image-20230107210247207.png)          |                                                   |
+| ![recommendation-trends](docs/assets/image-20230109133611842.png) | ![Peers](docs/assets/image-20230107193602052.png)   |
+| ------------------------------------------------------------ | --------------------------------------------------- |
+| ![Candles](docs/assets/image-20230107210247207.png)          | ![heatmap](docs/assets/image-20230109203313081.png) |
 
 ## Extending tulip
 

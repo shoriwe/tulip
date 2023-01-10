@@ -1,4 +1,5 @@
 import { candles, type Candle } from "$lib/api/client";
+import { calcLast, timeFromToFormat } from "./timestamp";
 
 function transformCandles(c: Candle[]): number[][] {
     if (!c) {
@@ -27,40 +28,12 @@ export async function candlesOptions(
     symbol: string, resolution: string, last: number, from: number, to: number
 ): Promise<any> {
     if (last !== 0) {
-        from = to = Date.now();
-        switch (resolution) {
-            case '1':
-                from -= last * 60000
-                break;
-            case '60':
-                from -= last * 3600000
-                break;
-            case 'D':
-                from -= last * 86400000
-                break;
-            case 'M':
-                from -= last * 2678400000
-                break;
-            default:
-                break;
-        }
+        const computedInterval: { from: number, to: number } = calcLast(resolution, to);
+        from = computedInterval.from;
+        to = computedInterval.to;
     }
-    let fromDString: string = "";
-    let toDString: string = "";
-    switch (resolution) {
-        case '1':
-        case '60':
-            fromDString = new Date(from).toLocaleString();
-            toDString = new Date(to).toLocaleString();
-            break;
-        case 'D':
-        case 'M':
-            fromDString = new Date(from).toLocaleDateString();
-            toDString = new Date(to).toLocaleDateString();
-            break;
-        default:
-            break;
-    }
+    const fromToFormat = timeFromToFormat(resolution, from, last);
+
     new Date(from).toLocaleString()
     const data: any = transformCandles(await candles(symbol, resolution, from, to));
     const option: any = {
@@ -68,7 +41,7 @@ export async function candlesOptions(
             source: data
         },
         title: {
-            text: `${symbol}: ${fromDString} --> ${toDString}`
+            text: `${symbol}: ${fromToFormat.from} --> ${fromToFormat.to}`
         },
         tooltip: {
             trigger: 'axis',
