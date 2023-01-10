@@ -130,6 +130,18 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/note"
+    put:
+      tags:
+        - notes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/note"
+      description: Returns a note object
+      responses:
+        200:
+          description: Note created successfully
   /api/notes/{name}:
     get:
       tags:
@@ -149,25 +161,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/note"
-    put:
-      tags:
-        - notes
-      parameters:
-        - in: path
-          required: true
-          name: name
-          schema:
-            type: string
-            example: My note
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/note"
-      description: Returns a note object
-      responses:
-        200:
-          description: Note created successfully
     patch:
       tags:
         - notes
