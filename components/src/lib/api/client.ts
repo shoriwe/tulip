@@ -60,12 +60,24 @@ export async function createNote(name: string): Promise<void> {
 }
 
 export async function getNote(name: string): Promise<Note> {
+    name = encodeURI(name);
     const response: Response = await fetch(`${baseUrl}/api/notes/${name}`);
+    if (response.status !== 200) throw "note doesn't exists"
     const note: Note = await response.json();
     return note;
 }
 
+export async function noteExists(name: string): Promise<boolean> {
+    try {
+        await getNote(name);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 export async function updateNote(name: string, content: string): Promise<void> {
+    name = encodeURI(name);
     const response: Response = await fetch(`${baseUrl}/api/notes/${name}`, {
         method: 'PATCH',
         headers: {
@@ -82,6 +94,7 @@ export async function listNotes(): Promise<Note[]> {
 }
 
 export async function deleteNote(name: string): Promise<void> {
+    name = encodeURI(name);
     const response: Response = await fetch(`${baseUrl}/api/notes/${name}`, {
         method: 'DELETE',
     });

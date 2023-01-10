@@ -13,17 +13,17 @@
 	import 'github-markdown-css';
 	import 'highlight.js/styles/vs.css';
 	import { onMount } from 'svelte';
-	import { createNote, getNote, updateNote, type Note } from '$lib/api/client';
+	import { createNote, getNote, noteExists, updateNote, type Note } from '$lib/api/client';
 
 	export let name: string;
 
 	let value: string = '';
 
 	onMount(async () => {
-		try {
+		if (await noteExists(name)) {
 			const note: Note = await getNote(name);
 			value = note.content;
-		} catch {
+		} else {
 			value = '';
 			await createNote(name);
 		}
