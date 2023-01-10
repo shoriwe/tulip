@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.44](https://github.com/shoriwe/tulip/compare/v0.6.43...v0.6.44) (2023-01-10)
+
+
+### Features
+
+* Combined data source ([bf7dc26](https://github.com/shoriwe/tulip/commit/bf7dc2670e654c3c7a91b1a7cdcf30b08c048efa))
+* combined source CLI subcommand ([892ac43](https://github.com/shoriwe/tulip/commit/892ac434cab6aead33d5398ef34d689a9cbabc51))
+* heatmap skeleton ([abf57d1](https://github.com/shoriwe/tulip/commit/abf57d18e18492d024af59d6fdda91f0134f3bea))
+* NOP source ([ecf60ad](https://github.com/shoriwe/tulip/commit/ecf60adce7a2262408b41489a191c87863a71cb3))
+* recommendation trends component ([e574ebf](https://github.com/shoriwe/tulip/commit/e574ebfae5b4abe02d9b1083b74ff3e817490bf4))
+* symbol heatmap ([445eb59](https://github.com/shoriwe/tulip/commit/445eb59ede0bbdf5db1c25f81058df683d364f58))
+* Yahoo data source ([d016d05](https://github.com/shoriwe/tulip/commit/d016d056992ca305bc093e0e523e07a6f69b03d0))
+* Yahoo subcommand ([3ef3dac](https://github.com/shoriwe/tulip/commit/3ef3dacf03eb15febda23c1d8707d750ccb2fe3c))
+
+
+### Bug Fixes
+
+* added comment to generated components commit message ([9b7e6fc](https://github.com/shoriwe/tulip/commit/9b7e6fcb7df9d7dc81713c2afc7c8380492e6ba1))
+* added flags config to combined subcommand ([c7818fc](https://github.com/shoriwe/tulip/commit/c7818fc199174f7c6de754e8194ce1dd2ff6a167))
+* added recommendation-trends to the go embed file ([219089f](https://github.com/shoriwe/tulip/commit/219089f57efaf29e82614c4343aacb2573ab1f60))
+* added support for the latest components implementation ([2c46d30](https://github.com/shoriwe/tulip/commit/2c46d30600888f59ea543f2d8a45b39129fab8e9))
+* added type checking for params ([cec2e51](https://github.com/shoriwe/tulip/commit/cec2e51cab084c428e79954fc8e422f5abe9ddf6))
+* added useYahoo flag variable ([18c9f0e](https://github.com/shoriwe/tulip/commit/18c9f0e144db84964aa4d025464a5de74c3a080e))
+* code reusability fix ([159dfa2](https://github.com/shoriwe/tulip/commit/159dfa2ed032e9c770b95b3f0da1b30518a9fae3))
+* fixed from query param from candles component ([001b473](https://github.com/shoriwe/tulip/commit/001b473749f0b6281e5932d31d2a65b02a59070f))
+* support for heatmap component in the go generate file ([c2d8800](https://github.com/shoriwe/tulip/commit/c2d88008d88ca2078144ad092ad9999ed934da91))
+
 ### 0.6.43 (2023-01-09)
 
 
