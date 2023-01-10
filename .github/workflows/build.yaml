@@ -28,23 +28,13 @@ jobs:
         run: go generate ./... && go build -v ./...
 
       - name: Test
-        run: go test -v ./...
-        env:
-          FINNHUB: ${{ secrets.FINNHUB }}
-
-  codecov:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Test
         run: go generate ./... && go test -coverpkg ./... -coverprofile coverage.txt -covermode atomic ./...
         env:
           FINNHUB: ${{ secrets.FINNHUB }}
       - uses: codecov/codecov-action@v3
 
   versioning:
-    needs: codecov
+    needs: build
     runs-on:
       ubuntu-latest
       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
