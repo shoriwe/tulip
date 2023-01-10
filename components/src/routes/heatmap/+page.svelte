@@ -12,10 +12,10 @@
 
 	onMount(async () => {
 		if (window && window.location && window.location.search) {
-			const params: URLSearchParams = new Proxy(new URLSearchParams(window.location.search), {
-				get: (searchParams, prop) => searchParams.get(prop)
+			const params: any = new Proxy(new URLSearchParams(window.location.search), {
+				get: (searchParams: any, prop: any) => searchParams.get(prop)
 			});
-			symbols = (params.symbol || 'AAPL').split(',');
+			symbols = (params.symbols || 'AAPL').split(',');
             resolution = params.resolution || 'D';
             const lastString: string = params.last || '0';
 			last = parseInt(lastString);
@@ -28,6 +28,7 @@
 		}
 	});
 </script>
+
 
 {#key loaded}
 	{#if loaded}
