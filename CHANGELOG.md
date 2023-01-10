@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.46 (2023-01-10)
+
+
+### Bug Fixes
+
+* percentage change function ([#26](https://github.com/shoriwe/tulip/issues/26)) ([9aa978a](https://github.com/shoriwe/tulip/commit/9aa978a5cd0808a1886a74f6a2d54dfbd818f127))
+
 ### 0.6.45 (2023-01-10)
 
 
