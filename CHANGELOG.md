@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.6.48 (2023-01-10)
+
+
+### Bug Fixes
+
+* fixed combined, now it successfully make use of finnhub and yahoo ([5fe632f](https://github.com/shoriwe/tulip/commit/5fe632fe98773f447d8668c06e6ceae443313d60))
+
 ### 0.6.47 (2023-01-10)
 
 
