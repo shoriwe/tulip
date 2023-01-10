@@ -28,11 +28,11 @@ export async function candlesOptions(
     symbol: string, resolution: string, last: number, from: number, to: number
 ): Promise<any> {
     if (last !== 0) {
-        const computedInterval: { from: number, to: number } = calcLast(resolution, to);
+        const computedInterval: { from: number, to: number } = calcLast(resolution, last);
         from = computedInterval.from;
         to = computedInterval.to;
     }
-    const fromToFormat = timeFromToFormat(resolution, from, last);
+    const fromToFormat = timeFromToFormat(resolution, from, to);
 
     new Date(from).toLocaleString()
     const data: any = transformCandles(await candles(symbol, resolution, from, to));
