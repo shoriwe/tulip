@@ -8,7 +8,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var useYahoo *bool
+var (
+	combinedUseYahoo     *bool
+	combinedFinnhubToken *string
+)
 
 var combinedCmd = &cobra.Command{
 	Use:   "combined",
@@ -16,10 +19,10 @@ var combinedCmd = &cobra.Command{
 	Long:  `Combined source pipe, uses different sources if other fails to fetch data`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var sources []store.Source
-		if *finnhubToken != "" {
-			sources = append(sources, store.NewFinnhub(*finnhubToken))
+		if *combinedFinnhubToken != "" {
+			sources = append(sources, store.NewFinnhub(*combinedFinnhubToken))
 		}
-		if *useYahoo {
+		if *combinedUseYahoo {
 			sources = append(sources, store.NewYahoo())
 		}
 		if len(sources) == 0 {
@@ -37,6 +40,6 @@ var combinedCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(combinedCmd)
-	finnhubToken = combinedCmd.Flags().StringP("finnhub", "f", "", "Sets Finnhub API Key. Adds to Finnhub Source to the pipe")
-	useYahoo = combinedCmd.Flags().BoolP("yahoo", "y", false, "Adds to Yahoo finance Source to the pipe")
+	combinedFinnhubToken = combinedCmd.Flags().StringP("finnhub", "f", "", "Sets Finnhub API Key. Adds to Finnhub Source to the pipe")
+	combinedUseYahoo = combinedCmd.Flags().BoolP("yahoo", "y", false, "Adds to Yahoo finance Source to the pipe")
 }
