@@ -7,10 +7,14 @@ try {
 }
 
 try {
-    const response = await fetch(`${backendUrl}/api/ping`);
-    if (response.status !== 200) throw 'invalid backend url';
+    const req = new XMLHttpRequest();
+    req.open("GET", `${backendUrl}/api/ping`);
+    req.send();
+    const res: Response = req.response();
+    if (res.status !== 200) throw 'verify failed';
 } catch {
     backendUrl = 'http://127.0.0.1:5000';
 }
+
 
 export const baseUrl: string = backendUrl;
