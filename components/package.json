@@ -34,6 +34,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"flowbite-svelte": "^0.29.9",
 		"github-markdown-css": "^5.1.0",
 		"postcss": "^8.4.21",
 		"prettier": "^2.8.0",
