@@ -4,6 +4,7 @@
 	import Resume from './resume.svelte';
 	import { onMount } from 'svelte';
 	import { dashboardStore } from '$lib/stores/dashboard';
+	import Symbols from './symbols.svelte';
 
 	let symbols: string[] = [];
 	let loaded: boolean = false;
@@ -34,6 +35,6 @@
 	</TabItem>
 	<TabItem class="w-full">
 		<span slot="title">Symbols</span>
-		Symbols
+		<Symbols bind:symbols />
 	</TabItem>
 </Tabs>

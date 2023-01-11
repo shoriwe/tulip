@@ -28,7 +28,7 @@
 		<div>
 			{#key symbols || resolution || last}
 				<div class="w-full" style="height: 100%;">
-					<Heatmap bind:symbols bind:resolution bind:last from={0} to={0} />
+					<Heatmap bind:symbols bind:resolution bind:last/>
 				</div>
 			{/key}
 		</div>
