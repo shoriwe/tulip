@@ -1,3 +1,4 @@
+import type { SelectOptionType } from "flowbite-svelte/types";
 import { baseUrl } from "./config";
 
 export interface Candle {
@@ -100,4 +101,13 @@ export async function deleteNote(name: string): Promise<void> {
     });
 }
 
-export const resolutions: string[] = [ '1', '60', 'D', 'M' ]
+export const resolutions: string[] = [ '1', '60', 'D', 'M' ];
+export const resolutionsOptions: SelectOptionType[] = [
+    ...resolutions.map((r: string): SelectOptionType => {
+        return { value: r, name: r };
+    })
+];
+export function symbolsToNoteName(symbols: string[]): string {
+    const sortedSymbols: string[] = symbols.sort();
+    return 'dashboard-' + sortedSymbols.join('-');
+}
