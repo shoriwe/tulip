@@ -159,3 +159,59 @@ export async function candlesOptions(
     };
     return option;
 }
+
+export async function simpleCandlesOption(
+    symbol: string, resolution: string, last: number, from: number, to: number
+): Promise<any> {
+    if (last !== 0) {
+        const computedInterval: { from: number, to: number } = calcLast(resolution, last);
+        from = computedInterval.from;
+        to = computedInterval.to;
+    }
+
+    new Date(from).toLocaleString()
+    const data: any = transformCandles(await candles(symbol, resolution, from, to));
+    const option: any = {
+        dataset: {
+            source: data
+        },
+        tooltip: {},
+        title: {
+            text: symbol,
+            left: 'center'
+        },
+        grid: [
+            {
+                bottom: 200
+            }
+        ],
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                axisLine: { onZero: false },
+                splitLine: { show: false },
+                min: 'dataMin',
+                max: 'dataMax'
+            }
+        ],
+        yAxis: [
+            {
+                scale: true,
+                splitArea: {
+                    show: true
+                }
+            }
+        ],
+        series: [
+            {
+                type: 'candlestick',
+                encode: {
+                    x: 0,
+                    y: [1, 2, 3, 4]
+                }
+            }
+        ]
+    };
+    return option;
+}
