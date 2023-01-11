@@ -99,3 +99,5 @@ export async function deleteNote(name: string): Promise<void> {
         method: 'DELETE',
     });
 }
+
+export const resolutions: string[] = [ '1', '60', 'D', 'M' ]
