@@ -2,12 +2,14 @@
 	import SimpleCandles from '../simpleCandles.svelte';
 
 	export let symbols: string[];
+	export let resolution: string;
+	export let last: number;
 </script>
 
 {#key symbols}
 	<div class="grid sm:grid-cols-1 md:grid-cols-3">
 		{#each symbols as symbol}
-			<SimpleCandles {symbol} height="275px" />
+			<SimpleCandles {symbol} bind:resolution bind:last height="275px" />
 		{/each}
 	</div>
 {/key}

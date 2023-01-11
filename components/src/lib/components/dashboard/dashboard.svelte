@@ -48,6 +48,6 @@
 	</TabItem>
 	<TabItem class="w-full">
 		<span slot="title">Symbols</span>
-		<Symbols bind:symbols />
+		<Symbols bind:symbols bind:resolution bind:last/>
 	</TabItem>
 </Tabs>
