@@ -11,13 +11,8 @@
 	let innerHeight: number;
 
 	onMount(async function () {
-		chartDom.style.height = `${innerHeight - 30}px`;
 		chart = echarts.init(chartDom);
 		chart.showLoading();
-		window.onresize = function () {
-			chartDom.style.height = `${innerHeight - 30}px`;
-			chart.resize({ height: innerHeight - 30 });
-		};
 	});
 
 	onDestroy(async function () {
@@ -30,6 +25,10 @@
 			chart.hideLoading();
 			chart.setOption(option);
 			loaded = true;
+		}
+		if (loaded && innerHeight) {
+			chartDom.style.height = `${innerHeight - 30}px`;
+			chart.resize({ height: innerHeight - 30 });
 		}
 	}
 </script>
