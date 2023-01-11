@@ -9,7 +9,7 @@
 	import Heatmap from '../heatmap.svelte';
 
 	let resolution: string = 'D';
-	let last: number = 365;
+	let last: number = 31;
 
 	$: {
 		symbols;
