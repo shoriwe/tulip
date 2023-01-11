@@ -27,7 +27,9 @@
 		<Editor bind:name />
 		<div>
 			{#key symbols || resolution || last}
-				<Heatmap bind:symbols bind:resolution bind:last from={0} to={0} />
+				<div class="w-full" style="height: 100%;">
+					<Heatmap bind:symbols bind:resolution bind:last from={0} to={0} />
+				</div>
 			{/key}
 		</div>
 	{/key}
