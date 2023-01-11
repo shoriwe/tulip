@@ -3,16 +3,23 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	export let option: any;
+	export let height: string = '';
 
 	let chartDom: HTMLElement;
 	let chart: echarts.ECharts;
 	let loaded: boolean = false;
 
 	let innerHeight: number;
+	let innerWidth: number;
 
 	onMount(async function () {
+		if (height) chartDom.style.height = height;
+		if (!height) chartDom.style.height = `${innerHeight}px`;
 		chart = echarts.init(chartDom);
 		chart.showLoading();
+		window.onresize = () => {
+			chart.resize();
+		};
 	});
 
 	onDestroy(async function () {
@@ -26,12 +33,8 @@
 			chart.setOption(option);
 			loaded = true;
 		}
-		if (loaded && innerHeight) {
-			chartDom.style.height = `${innerHeight - 30}px`;
-			chart.resize({ height: innerHeight - 30 });
-		}
 	}
 </script>
 
-<svelte:window bind:innerHeight />
+<svelte:window bind:innerWidth bind:innerHeight />
 <div bind:this={chartDom} />

@@ -6,14 +6,13 @@
 	export let symbol: string;
 	export let resolution: string = 'D';
 	export let last: number = 31;
-	export let from: number = 0;
-	export let to: number = 0;
+	export let height: string = '';
 
 	let option: any;
 
 	onMount(async function () {
-		option = await simpleCandlesOption(symbol, resolution, last, from, to);
+		option = await simpleCandlesOption(symbol, resolution, last, 0, 0);
 	});
 </script>
 
-<Chart bind:option />
+<Chart bind:option bind:height />

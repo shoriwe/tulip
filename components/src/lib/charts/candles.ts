@@ -180,15 +180,9 @@ export async function simpleCandlesOption(
             text: symbol,
             left: 'center'
         },
-        grid: [
-            {
-                bottom: 200
-            }
-        ],
         xAxis: [
             {
                 type: 'category',
-                boundaryGap: false,
                 axisLine: { onZero: false },
                 splitLine: { show: false },
                 min: 'dataMin',
@@ -198,9 +192,6 @@ export async function simpleCandlesOption(
         yAxis: [
             {
                 scale: true,
-                splitArea: {
-                    show: true
-                }
             }
         ],
         series: [
@@ -209,7 +200,7 @@ export async function simpleCandlesOption(
                 encode: {
                     x: 0,
                     y: [1, 2, 3, 4]
-                }
+                },
             }
         ]
     };
