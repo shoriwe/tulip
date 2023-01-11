@@ -43,19 +43,7 @@ export async function candlesOptions(
         title: {
             text: `${symbol}: ${fromToFormat.from} --> ${fromToFormat.to}`
         },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'line'
-            }
-        },
-        toolbox: {
-            feature: {
-                dataZoom: {
-                    yAxisIndex: false
-                }
-            }
-        },
+        tooltip: {},
         grid: [
             {
                 left: '10%',
@@ -112,7 +100,7 @@ export async function candlesOptions(
             {
                 type: 'inside',
                 xAxisIndex: [0, 1],
-                start: 10,
+                start: 0,
                 end: 100
             },
             {
@@ -120,7 +108,7 @@ export async function candlesOptions(
                 xAxisIndex: [0, 1],
                 type: 'slider',
                 bottom: 10,
-                start: 10,
+                start: 0,
                 end: 100
             }
         ],
