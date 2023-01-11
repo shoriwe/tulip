@@ -6,6 +6,7 @@
 
 	let chartDom: HTMLElement;
 	let chart: echarts.ECharts;
+	let loaded: boolean = false;
 
 	let innerHeight: number;
 
@@ -15,7 +16,7 @@
 		chart.showLoading();
 		window.onresize = function () {
 			chartDom.style.height = `${innerHeight - 30}px`;
-			chart.resize({height: innerHeight - 30});
+			chart.resize({ height: innerHeight - 30 });
 		};
 	});
 
@@ -25,14 +26,13 @@
 
 	$: {
 		option;
-		if (chart && option) {
+		if (!loaded && chart && option) {
 			chart.hideLoading();
 			chart.setOption(option);
+			loaded = true;
 		}
 	}
 </script>
 
 <svelte:window bind:innerHeight />
-<div style="width: 100%;">
-	<div bind:this={chartDom} />
-</div>
+<div bind:this={chartDom} />
