@@ -2,6 +2,10 @@
 
 **tulip** provides easy to use component system that can be easily embedded in your own HTML pages or Markdown documents
 
+## Dashboard
+
+- Route: `/components/dashboard.html`
+
 ## Peers
 
 - Route: `/components/peers.html`
