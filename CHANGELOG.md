@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.3 (2023-01-12)
+
+
+### Bug Fixes
+
+* limit DB connections to prevent sqlite locks ([c12c9cb](https://github.com/shoriwe/tulip/commit/c12c9cb78b7a177014520273036b735aa9f3ed75))
+
 ### 0.8.2 (2023-01-12)
 
 
