@@ -197,6 +197,12 @@ export async function simpleCandlesOption(
         series: [
             {
                 type: 'candlestick',
+                itemStyle: {
+                    color: 'green',
+                    color0: 'red',
+                    borderColor: 'green',
+                    borderColor0: 'red'
+                },
                 encode: {
                     x: 0,
                     y: [1, 2, 3, 4]
