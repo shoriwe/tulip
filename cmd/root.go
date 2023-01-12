@@ -32,7 +32,17 @@ func Execute() {
 
 func createDB() *gorm.DB {
 	if strings.Index(*rootSQLUrl, "sqlite://") == 0 {
-		return common.NewSQLite((*rootSQLUrl)[9:])
+		sqliteFile := (*rootSQLUrl)[9:]
+		db := common.NewSQLite(sqliteFile)
+		if sqliteFile == "sqlite://file::memory:?cache=shared" {
+			return db
+		}
+		sqliteDB, err := db.DB()
+		if err != nil {
+			panic(err)
+		}
+		sqliteDB.SetMaxOpenConns(1)
+		return db
 	}
 	panic("sqlite is only supported by the moment")
 }
