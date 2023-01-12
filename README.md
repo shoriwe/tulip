@@ -16,6 +16,10 @@ Extensible market data REST API, made with the intention to interact with multip
 tulip yahoo
 ```
 
+## Dashboard preview
+
+![image-20230112102648846](docs/assets/image-20230112102648846.png)
+
 ## Components preview
 
 | ![recommendation-trends](docs/assets/image-20230109133611842.png) | ![Peers](docs/assets/image-20230107193602052.png)   |

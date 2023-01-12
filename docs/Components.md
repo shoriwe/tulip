@@ -6,6 +6,8 @@
 
 - Route: `/components/dashboard.html`
 
+![image-20230112102648846.png](assets/image-20230112102648846.png)
+
 ## Peers
 
 - Route: `/components/peers.html`
