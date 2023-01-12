@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.1 (2023-01-12)
+
+
+### Features
+
+* Dashboard ([#30](https://github.com/shoriwe/tulip/issues/30)) ([a2c17e5](https://github.com/shoriwe/tulip/commit/a2c17e56951f954eae02bb75547eb3d234206667))
+
 ## [0.8.0](https://github.com/shoriwe/tulip/compare/v0.7.1...v0.8.0) (2023-01-11)
 
 
