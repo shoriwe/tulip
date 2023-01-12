@@ -89,6 +89,8 @@ func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) ([]*C
 	if from.After(to) {
 		return nil, fmt.Errorf("from should be before to")
 	}
+	from = NormalizeTimestamp(res, from)
+	to = NormalizeTimestamp(res, to)
 	var expectedLength int64
 	switch res {
 	case Minute:
@@ -124,6 +126,7 @@ func (s *Store) Candles(res Resolution, symbol string, from, to time.Time) ([]*C
 	if cErr != nil {
 		return nil, cErr
 	}
+	candles = NormalizeCandles(candles)
 	iErr := s.db.Clauses(clause.OnConflict{UpdateAll: true}).Create(candles).Error
 	if iErr != nil {
 		return nil, iErr
