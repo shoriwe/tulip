@@ -14,9 +14,9 @@ var yahooCmd = &cobra.Command{
 	Long:  `Use Yahoo finance as data source`,
 	Run: func(cmd *cobra.Command, args []string) {
 		source := store.NewYahoo()
-		s := store.NewStore(db, c, source)
+		s := store.NewStore(createDB(), createCache(), source)
 		server := handler.NewHandler(s)
-		serverErr := server.Start(*listen)
+		serverErr := server.Start(*rootListenAddress)
 		if serverErr != nil {
 			log.Fatal(serverErr)
 		}

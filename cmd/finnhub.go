@@ -18,9 +18,9 @@ var finnhubCmd = &cobra.Command{
 	Long:  `Use the finnhub caching driver to interfasce with the finnhub API`,
 	Run: func(cmd *cobra.Command, args []string) {
 		source := store.NewFinnhub(*finnhubToken)
-		s := store.NewStore(db, c, source)
+		s := store.NewStore(createDB(), createCache(), source)
 		server := handler.NewHandler(s)
-		serverErr := server.Start(*listen)
+		serverErr := server.Start(*rootListenAddress)
 		if serverErr != nil {
 			log.Fatal(serverErr)
 		}

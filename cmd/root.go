@@ -11,9 +11,9 @@ import (
 )
 
 var (
-	listen *string
-	db     *gorm.DB
-	c      *cache.Cache[[]byte]
+	rootListenAddress *string
+	rootSQLUrl        *string
+	rootCache         *string
 )
 
 var rootCmd = &cobra.Command{
@@ -30,15 +30,23 @@ func Execute() {
 	}
 }
 
-func init() {
-	listen = rootCmd.PersistentFlags().StringP("listen", "l", "127.0.0.1:5000", "Listen address for the REST API")
-	sqlURL := rootCmd.PersistentFlags().StringP("sql", "s", "sqlite://file::memory:?cache=shared", "SQLite URL or PostgreSQL URL")
-	cacheSource := rootCmd.PersistentFlags().StringP("cache", "x", ":memory:", "Memory cache or redis address")
+func createDB() *gorm.DB {
+	if strings.Index(*rootSQLUrl, "sqlite://") == 0 {
+		return common.NewSQLite((*rootSQLUrl)[9:])
+	}
+	panic("sqlite is only supported by the moment")
+}
 
-	if strings.Index(*sqlURL, "sqlite://") == 0 {
-		db = common.NewSQLite((*sqlURL)[9:])
+func createCache() *cache.Cache[[]byte] {
+	if *rootCache == ":memory:" {
+		return common.NewBigCache()
 	}
-	if *cacheSource == ":memory:" {
-		c = common.NewBigCache()
-	}
+	panic("in memory cache is only supported by the moment")
+}
+
+func init() {
+	rootListenAddress = rootCmd.PersistentFlags().StringP("listen", "l", "127.0.0.1:5000", "Listen address for the REST API")
+	rootSQLUrl = rootCmd.PersistentFlags().StringP("sql", "s", "sqlite://file::memory:?cache=shared", "SQLite URL or PostgreSQL URL")
+	rootCache = rootCmd.PersistentFlags().StringP("cache", "x", ":memory:", "Memory cache or redis address")
+
 }

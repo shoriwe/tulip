@@ -29,9 +29,9 @@ var combinedCmd = &cobra.Command{
 			sources = append(sources, store.NewNOP())
 		}
 		source := store.NewCombined(sources...)
-		s := store.NewStore(db, c, source)
+		s := store.NewStore(createDB(), createCache(), source)
 		server := handler.NewHandler(s)
-		serverErr := server.Start(*listen)
+		serverErr := server.Start(*rootListenAddress)
 		if serverErr != nil {
 			log.Fatal(serverErr)
 		}
