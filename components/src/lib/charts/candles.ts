@@ -43,19 +43,7 @@ export async function candlesOptions(
         title: {
             text: `${symbol}: ${fromToFormat.from} --> ${fromToFormat.to}`
         },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'line'
-            }
-        },
-        toolbox: {
-            feature: {
-                dataZoom: {
-                    yAxisIndex: false
-                }
-            }
-        },
+        tooltip: {},
         grid: [
             {
                 left: '10%',
@@ -112,7 +100,7 @@ export async function candlesOptions(
             {
                 type: 'inside',
                 xAxisIndex: [0, 1],
-                start: 10,
+                start: 0,
                 end: 100
             },
             {
@@ -120,7 +108,7 @@ export async function candlesOptions(
                 xAxisIndex: [0, 1],
                 type: 'slider',
                 bottom: 10,
-                start: 10,
+                start: 0,
                 end: 100
             }
         ],
@@ -166,6 +154,53 @@ export async function candlesOptions(
                     x: 0,
                     y: 5
                 }
+            }
+        ]
+    };
+    return option;
+}
+
+export async function simpleCandlesOption(
+    symbol: string, resolution: string, last: number, from: number, to: number
+): Promise<any> {
+    if (last !== 0) {
+        const computedInterval: { from: number, to: number } = calcLast(resolution, last);
+        from = computedInterval.from;
+        to = computedInterval.to;
+    }
+
+    new Date(from).toLocaleString()
+    const data: any = transformCandles(await candles(symbol, resolution, from, to));
+    const option: any = {
+        dataset: {
+            source: data
+        },
+        tooltip: {},
+        title: {
+            text: symbol,
+            left: 'center'
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisLine: { onZero: false },
+                splitLine: { show: false },
+                min: 'dataMin',
+                max: 'dataMax'
+            }
+        ],
+        yAxis: [
+            {
+                scale: true,
+            }
+        ],
+        series: [
+            {
+                type: 'candlestick',
+                encode: {
+                    x: 0,
+                    y: [1, 2, 3, 4]
+                },
             }
         ]
     };

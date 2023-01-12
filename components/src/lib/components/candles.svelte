@@ -3,21 +3,18 @@
 	import { onMount } from 'svelte';
 	import Chart from './chart.svelte';
 
-	export let upColor: string;
-	export let downColor: string;
+	export let upColor: string = 'green';
+	export let downColor: string = 'red';
 	export let symbol: string;
-	export let resolution: string;
-    export let last: number;
-    export let from: number;
-    export let to: number;
+	export let resolution: string = 'D';
+	export let last: number = 31;
+	export let from: number = 0;
+	export let to: number = 0;
 
 	let option: any;
 
 	onMount(async function () {
-		option = await candlesOptions(
-			upColor, downColor, 
-			symbol, resolution, last, from, to,
-		);
+		option = await candlesOptions(upColor, downColor, symbol, resolution, last, from, to);
 	});
 </script>
 

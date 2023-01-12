@@ -34,6 +34,7 @@ func NewHandler(store *store.Store) *echo.Echo {
 	api.GET(NotesRouteWithParams, h.GetNote)
 	api.PATCH(NotesRouteWithParams, h.UpdateNote)
 	api.DELETE(NotesRouteWithParams, h.DeleteNote)
+	api.Any("/ping", func(c echo.Context) error { return nil })
 	// Components
 	c := e.Group(ComponentsRoute)
 	fsys, err := fs.Sub(components.Components, "build")
@@ -41,6 +42,7 @@ func NewHandler(store *store.Store) *echo.Echo {
 		panic(err)
 	}
 	c.GET("/*", echo.WrapHandler(http.StripPrefix(ComponentsRoute+"/", http.FileServer(http.FS(fsys)))))
+
 	return e
 }
 

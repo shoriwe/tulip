@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/shoriwe/tulip/compare/v0.7.1...v0.8.0) (2023-01-11)
+
+
+### Features
+
+* added flowbite UI component lib ([0a90fa9](https://github.com/shoriwe/tulip/commit/0a90fa92030655c1349403f3ca3cc6577334c5bc))
+* auto ping configuration ([4a04338](https://github.com/shoriwe/tulip/commit/4a04338c68488b7fecfe4b60a5127503c6c0c9ef))
+* build components ([b07586f](https://github.com/shoriwe/tulip/commit/b07586f5ab2e6186ae6838527b1453988050b98a))
+* complete implementation of the dashboard ([568ad8a](https://github.com/shoriwe/tulip/commit/568ad8a56dcc39204601beb5668a32ca9a58c76c))
+* components home page ([c463f62](https://github.com/shoriwe/tulip/commit/c463f62e98fe4e4e094b3c22f90b7d99ffdd15b4))
+* dashboard candles ([4b45c01](https://github.com/shoriwe/tulip/commit/4b45c01faf35ea1bd1eb3422f2114644b9d3999d))
+* dashboard heatmap and global notes ([1e22fb0](https://github.com/shoriwe/tulip/commit/1e22fb0d40779b00e91662581154d1df97317626))
+* failwind css dependency ([d6edd43](https://github.com/shoriwe/tulip/commit/d6edd4372a1ea93bf37dd288ef904546f1d89192))
+* local storage symbols ([ead3435](https://github.com/shoriwe/tulip/commit/ead343546b4044d37b7fe25dd5bef0e0a272fd60))
+* markdown viewer ([c89668b](https://github.com/shoriwe/tulip/commit/c89668b40bf26042e26d52c0e6f7de64f4138c5f))
+* resolutions ([b332d60](https://github.com/shoriwe/tulip/commit/b332d60ae4de0b3207f92b6b6408573b4cbd9291))
+* simple candles ([52441b1](https://github.com/shoriwe/tulip/commit/52441b1dadeac13927fbc49af29ce87f05c6995f))
+* svelte tags ([02f2dfe](https://github.com/shoriwe/tulip/commit/02f2dfe8bfd411a211d39820e878aeb78fba4d4e))
+* symbols dashboard view ([fa2487d](https://github.com/shoriwe/tulip/commit/fa2487d602f8daa0c1cfb4c5dd4dfbcb074f4955))
+
+
+### Bug Fixes
+
+* added dashboard components ([6001723](https://github.com/shoriwe/tulip/commit/60017234b6c259b2271b6dc847b821b99b5320d9))
+* added last and resolution to symbols tabs ([41c3113](https://github.com/shoriwe/tulip/commit/41c3113da87e8468f1744e43b9b69a94150d3e69))
+* added loaded flag ([c4d7a6e](https://github.com/shoriwe/tulip/commit/c4d7a6e10e334f6711bf61eb0f26b228bf9c7d64))
+* better values and reactivity ([ddcede1](https://github.com/shoriwe/tulip/commit/ddcede184086ba2b7489240552b180df65bbc0bd))
+* code reformata ([8b57e35](https://github.com/shoriwe/tulip/commit/8b57e35d4127ab624c61fcc990accaab9ff6e86e))
+* encapsulated heatmap in div ([3c41eca](https://github.com/shoriwe/tulip/commit/3c41ecaa63a2a29a026e24410dc7d1871fd5b63a))
+* font-awesome ([b8e052c](https://github.com/shoriwe/tulip/commit/b8e052c53b00a59b67c36602c81c1a41e6ba13cd))
+* reduced the default timeframe ([2862f71](https://github.com/shoriwe/tulip/commit/2862f71cc0c7a06d2e83229ef3de25498f7a7da7))
+* responsive charts ([b90db64](https://github.com/shoriwe/tulip/commit/b90db6412217cda487692b978f41c5396eac903f))
+* simpler candles ([1d3ca49](https://github.com/shoriwe/tulip/commit/1d3ca496d05a60cf6633d0d19ef6ad3de42efa61))
+* sync way of pinging the server ([f008be9](https://github.com/shoriwe/tulip/commit/f008be9eb2afe9f1a620bc33b6c1e2eba394e26c))
+* typescript in layout pages ([8c2b345](https://github.com/shoriwe/tulip/commit/8c2b3450ab84ba618de6680c087ae279838e2205))
+
 ### 0.7.1 (2023-01-10)
 
 
