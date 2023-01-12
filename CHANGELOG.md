@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.2 (2023-01-12)
+
+
+### Bug Fixes
+
+* fixed bug where sqlite database file was not being created ([25228ef](https://github.com/shoriwe/tulip/commit/25228ef0d8d281fa931b42992d02f6b871ab551a))
+
 ### 0.8.1 (2023-01-12)
 
 
