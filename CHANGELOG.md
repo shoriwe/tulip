@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/shoriwe/tulip/compare/v0.8.4...v0.9.0) (2023-01-14)
+
+
+### Features
+
+* added lightweight charts candles sticks plot ([cba6cbb](https://github.com/shoriwe/tulip/commit/cba6cbb38ed1a5a37113d01410a3f5806b66e523))
+* installed lightweight-charts ([0203123](https://github.com/shoriwe/tulip/commit/020312340f08fb20cb90c0a05a50eff62392a611))
+
+
+### Bug Fixes
+
+* updated images ([096a9c2](https://github.com/shoriwe/tulip/commit/096a9c27a4ce6de5422a00f09edb41a53ca601c7))
+
 ### 0.8.4 (2023-01-12)
 
 
