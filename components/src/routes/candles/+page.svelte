@@ -33,18 +33,8 @@
 	});
 </script>
 
-<div class="w-screen h-screen">
-	{#key loaded}
-		{#if loaded}
-			<Candles
-				bind:upColor
-				bind:downColor
-				bind:symbol
-				bind:resolution
-				bind:last
-				bind:from
-				bind:to
-			/>
-		{/if}
-	{/key}
-</div>
+{#key loaded}
+	{#if loaded}
+		<Candles bind:upColor bind:downColor bind:symbol bind:resolution bind:last bind:from bind:to />
+	{/if}
+{/key}
