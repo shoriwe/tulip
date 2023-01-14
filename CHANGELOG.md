@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.5 (2023-01-14)
+
+
+### Bug Fixes
+
+* revert to old commit, ignoring lightweight-charts since SSR requirement ([a1702e2](https://github.com/shoriwe/tulip/commit/a1702e2a17f88e6648bb27d594441fd91ef0a0a0))
+
 ### 0.8.4 (2023-01-12)
 
 
