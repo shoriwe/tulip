@@ -78,6 +78,15 @@ cd tulip
 docker build -t tulip .
 ```
 
+## Contributing
+
+Consider giving this repository a star if it was useful to you.
+
+- Contributions are always welcome check [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+
+- If you have any new idea you can open an Issue and I will try my best to make it available in the project.
+- If you have code ready to merge please create a PR.
+
 ## Coverage
 
 <p align="center">
