@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.7 (2023-01-19)
+
+
+### Bug Fixes
+
+* added gains path to go generate ([cbf8e1e](https://github.com/shoriwe/tulip/commit/cbf8e1ecea582eafea2e6b3082f6ce855dd33438))
+
 ### 0.8.6 (2023-01-19)
 
 
