@@ -14,6 +14,7 @@ import (
 //go:embed build/_app/immutable/components/pages/heatmap/*
 //go:embed build/_app/immutable/components/pages/editor/*
 //go:embed build/_app/immutable/components/pages/dashboard/*
+//go:embed build/_app/immutable/components/pages/gains/*
 //go:embed build/_app/immutable/chunks/*
 //go:embed build/_app/immutable/assets/*
 var Components embed.FS
