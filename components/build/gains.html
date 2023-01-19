@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="/components/favicon.png" />
+	<!-- CUSTOM STUFF -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- /CUSTOM STUFF -->
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="content-security-policy" content="">
+		<link href="/components/_app/immutable/assets/_layout-3ecd69c8.css" rel="stylesheet">
+		<link href="/components/_app/immutable/assets/NumberInput-1d121e74.css" rel="stylesheet">
+		<link rel="modulepreload" href="/components/_app/immutable/start-498ed713.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/index-bec66cf6.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/singletons-674447c6.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/index-06c04e20.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="/components/_app/immutable/components/pages/_layout.svelte-e6a2b042.js">
+		<link rel="modulepreload" href="/components/_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="/components/_app/immutable/components/pages/gains/_page.svelte-8ff9e769.js">
+		<link rel="modulepreload" href="/components/_app/immutable/chunks/NumberInput-47c36468.js">
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">
+
+
+<div class="p-5"><div class="grid grid-cols-1 md:grid-cols-2 gap-5"><div class="inline-flex rounded-lg shadow-sm" role="group"><div class="text-sm px-3 border-gray-300 dark:border-gray-600 text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-400 dark:border-r-gray-700 dark:last:border-r-gray-600 inline-flex items-center border-t border-b first:border-l border-r first:rounded-l-lg last:rounded-r-lg">$</div>
+		
+  <input min="1" placeholder="Cash" class="block w-full disabled:cursor-not-allowed disabled:opacity-50 focus:border-blue-500 focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600 p-2.5 text-sm size first:rounded-l-lg last:rounded-r-lg border-l-0 first:border-l last:border-r" type="number" value="200">
+  
+		<div class="text-sm px-3 border-gray-300 dark:border-gray-600 text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-400 dark:border-r-gray-700 dark:last:border-r-gray-600 inline-flex items-center border-t border-b first:border-l border-r first:rounded-l-lg last:rounded-r-lg">X</div>
+		
+  <input min="1" placeholder="Leverage" class="block w-full disabled:cursor-not-allowed disabled:opacity-50 focus:border-blue-500 focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600 p-2.5 text-sm size first:rounded-l-lg last:rounded-r-lg border-l-0 first:border-l last:border-r" type="number" value="1">
+  </div>
+	<div class="inline-flex rounded-lg shadow-sm" role="group"><button type="button" class="text-center font-medium focus:ring-2 focus:z-10 size inline-flex items-center justify-center px-4 py-2 text-sm text-white bg-green-700 hover:bg-green-800 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 first:rounded-l-lg last:rounded-r-lg">Buy</button>
+		<div min="0" class="text-sm px-3 border-gray-300 dark:border-gray-600 text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-400 dark:border-r-gray-700 dark:last:border-r-gray-600 inline-flex items-center border-t border-b first:border-l border-r first:rounded-l-lg last:rounded-r-lg">Open Price</div>
+		
+  <input placeholder="Open price" class="block w-full disabled:cursor-not-allowed disabled:opacity-50 focus:border-blue-500 focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600 p-2.5 text-sm size first:rounded-l-lg last:rounded-r-lg border-l-0 first:border-l last:border-r" type="number" value="100">
+  
+		<div class="text-sm px-3 border-gray-300 dark:border-gray-600 text-gray-500 bg-gray-200 dark:bg-gray-600 dark:text-gray-400 dark:border-r-gray-700 dark:last:border-r-gray-600 inline-flex items-center border-t border-b first:border-l border-r first:rounded-l-lg last:rounded-r-lg">Close Price</div>
+		
+  <input min="0" placeholder="Close price" class="block w-full disabled:cursor-not-allowed disabled:opacity-50 focus:border-blue-500 focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600 p-2.5 text-sm size first:rounded-l-lg last:rounded-r-lg border-l-0 first:border-l last:border-r" type="number" value="1000">
+  </div></div>
+
+<div class="relative overflow-x-auto"><table class="w-full text-left text-sm text-gray-500 dark:text-gray-400"><thead class="text-xs uppercase text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-700"><tr><th class="px-6 py-3">Total</th>
+		<th class="px-6 py-3">Gains</th>
+		<th class="px-6 py-3">Gains Percentage</th>
+		<th class="px-6 py-3">Auto close price</th>
+		<th class="px-6 py-3">Auto close pillow</th></tr></thead>
+	<tbody><tr class="bg-white dark:border-gray-700 dark:bg-gray-800"><td class="px-6 py-4 whitespace-nowrap font-medium  text-gray-900 dark:text-white"><p class="text-green-500">2000</p></td>
+			<td class="px-6 py-4 whitespace-nowrap font-medium  text-gray-900 dark:text-white"><p class="text-green-500">1800</p></td>
+			<td class="px-6 py-4 whitespace-nowrap font-medium  text-gray-900 dark:text-white"><p class="text-green-500">900%
+				</p></td>
+			<td class="px-6 py-4 whitespace-nowrap font-medium  text-gray-900 dark:text-white">0</td>
+			<td class="px-6 py-4 whitespace-nowrap font-medium  text-gray-900 dark:text-white">100%</td></tr></tbody></table></div></div>
+
+
+		<script type="module" data-sveltekit-hydrate="1s9ywn3">
+			import { start } from "/components/_app/immutable/start-498ed713.js";
+
+			start({
+				env: {},
+				paths: {"base":"/components","assets":"/components"},
+				target: document.querySelector('[data-sveltekit-hydrate="1s9ywn3"]').parentNode,
+				version: "1674152013765",
+				hydrate: {
+					node_ids: [0, 6],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+</body>
+
+</html>
