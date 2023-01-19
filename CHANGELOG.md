@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.6 (2023-01-19)
+
+
+### Features
+
+* unplanned gain calculator component ([b9ac0d4](https://github.com/shoriwe/tulip/commit/b9ac0d45356e00046b96b580336809742db2a9c2))
+
 ### 0.8.5 (2023-01-14)
 
 
