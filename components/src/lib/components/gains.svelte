@@ -27,10 +27,12 @@
 	$: {
 		gainsPercentage = (buy ? 1 : -1) * ((close - open) / open);
 		gains = cash + cash * gainsPercentage * leverage;
-		if (buy) {
-			autoClosePrice = open - open / leverage;
+		if (leverage === 1) {
+			autoClosePrice = 0;
+		} else if (buy) {
+			autoClosePrice = open - (open / leverage) / 2;
 		} else {
-			autoClosePrice = open + open / leverage;
+			autoClosePrice = open + (open / leverage) / 2;
 		}
 		gainsCash = gains - cash;
 	}
@@ -59,8 +61,8 @@
 		<TableHeadCell>Total</TableHeadCell>
 		<TableHeadCell>{gains >= 0 ? 'Gains' : 'Loss'}</TableHeadCell>
 		<TableHeadCell>{gains >= 0 ? 'Gains' : 'Loss'} Percentage</TableHeadCell>
-		<TableHeadCell>Auto close price</TableHeadCell>
-		<TableHeadCell>Auto close pillow</TableHeadCell>
+		<TableHeadCell>Minimum price upon close</TableHeadCell>
+		<TableHeadCell>Pillow</TableHeadCell>
 	</TableHead>
 	<TableBody>
 		<TableBodyRow>
