@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.8.8 (2023-01-22)
+
+
+### Bug Fixes
+
+* fixed formula for price upon close ([b53f324](https://github.com/shoriwe/tulip/commit/b53f3248947cc494acbe1e15758f91893360bb83))
+
 ### 0.8.7 (2023-01-19)
 
 
