@@ -8,6 +8,9 @@
 	import Heatmap from './heatmap.svelte';
 	import { resolutionsOptions } from '$lib/api/client';
 
+	export let name: string;
+
+
 	let symbols: string[] = [];
 	let loaded: boolean = false;
 	let resolution: string = 'D';
@@ -40,7 +43,7 @@
 >
 	<TabItem class="w-full" open>
 		<span slot="title">Notes</span>
-		<Notes bind:symbols />
+		<Notes bind:name />
 	</TabItem>
 	<TabItem class="w-full">
 		<span slot="title">Heatmap</span>
