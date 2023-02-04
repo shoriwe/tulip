@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/shoriwe/tulip/compare/v0.8.8...v0.9.0) (2023-02-04)
+
+
+### Features
+
+* added input for notes name in dashboard ([e5e9666](https://github.com/shoriwe/tulip/commit/e5e9666c312eeed12128b814d800a580073fa7da))
+* compiled UI ([42fee54](https://github.com/shoriwe/tulip/commit/42fee5485277f51711759305b69c68f6e61a03ec))
+* dashboard notes are named ([ce38657](https://github.com/shoriwe/tulip/commit/ce386570e65a3dd4a531706080e00b647f087727))
+
 ### 0.8.8 (2023-01-22)
 
 
