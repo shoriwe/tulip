@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { Input } from 'flowbite-svelte';
 	import Editor from '../editor/editor.svelte';
-	export let name: string;
-
+	let name: string = 'Hello world';
 </script>
 
-<Editor bind:name />
+<Input type="text" placeholder="Note name" required bind:value={name} />
+{#key name}
+	<Editor bind:name />
+{/key}
